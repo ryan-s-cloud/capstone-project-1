@@ -1,0 +1,17 @@
+kind: Kustomization
+
+resources:
+  - namespace.yaml
+  - db/persistent-volume.yaml
+  - db/persistent-volume-claim.yaml
+  - db/service.yaml
+  - db/deployment.yaml
+  - db/network-policy.yaml
+  - web/service.yaml
+
+configMapGenerator:
+  - name: postgres-config
+    literals:
+      - POSTGRES_DB=vehicle_quotes
+      - POSTGRES_USER=vehicle_quotes
+      - POSTGRES_PASSWORD=password

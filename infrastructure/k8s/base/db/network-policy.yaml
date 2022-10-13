@@ -1,0 +1,14 @@
+# Only allow the Web layer to access the DB layer
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: access-db-from-web
+spec:
+  podSelector:
+    matchLabels:
+      app: vehicle-quotes-db
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: vehicle-quotes-web

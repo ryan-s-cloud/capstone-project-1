@@ -1,0 +1,84 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vehicle-quotes-web
+spec:
+  selector:
+    matchLabels:
+      app: vehicle-quotes-web
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: vehicle-quotes-web
+    spec:
+      initContainers:
+        - name: await-db-ready
+          image: postgres:13
+          command: ["/bin/sh"]
+          args: ["-c", "until pg_isready -h $(VEHICLE_QUOTES_DB_SERVICE_SERVICE_HOST) -p 5432; do echo waiting for database; sleep 2; done;"]
+        - name: build
+          # image: localhost:32000/vehicle-quotes-prod:registry
+          image: vehicle-quotes-web
+          workingDir: "/source"
+          command: ["/bin/sh"]
+          args: ["-c", "dotnet restore -v n && dotnet ef database update && dotnet publish -c release -o /app --no-restore"]
+          volumeMounts:
+            - mountPath: "/app"
+              name: vehicle-quotes-source-code-storage
+          env:
+            - name: POSTGRES_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config
+                  key: POSTGRES_DB
+            - name: POSTGRES_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config
+                  key: POSTGRES_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config
+                  key: POSTGRES_PASSWORD
+            - name: CUSTOMCONNSTR_VehicleQuotesContext
+              value: Host=$(VEHICLE_QUOTES_DB_SERVICE_SERVICE_HOST);Database=$(POSTGRES_DB);Username=$(POSTGRES_USER);Password=$(POSTGRES_PASSWORD)
+      containers:
+        - name: vehicle-quotes-web
+          #image: localhost:32000/vehicle-quotes-prod:registry
+          image: vehicle-quotes-web
+          workingDir: "/app"
+          command: ["/bin/sh"]
+          args: ["-c", "dotnet VehicleQuotes.dll --urls=https://0.0.0.0:5001/"]
+          ports:
+            - containerPort: 5001
+              name: "https"
+          volumeMounts:
+            - mountPath: "/app"
+              name: vehicle-quotes-source-code-storage
+          env:
+            - name: POSTGRES_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config
+                  key: POSTGRES_DB
+            - name: POSTGRES_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config
+                  key: POSTGRES_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config
+                  key: POSTGRES_PASSWORD
+            - name: CUSTOMCONNSTR_VehicleQuotesContext
+              value: Host=$(VEHICLE_QUOTES_DB_SERVICE_SERVICE_HOST);Database=$(POSTGRES_DB);Username=$(POSTGRES_USER);Password=$(POSTGRES_PASSWORD)
+          resources:
+            limits:
+              memory: 2Gi
+              cpu: "1"
+      volumes:
+        - name: vehicle-quotes-source-code-storage
+          emptyDir: {}

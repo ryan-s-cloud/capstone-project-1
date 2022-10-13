@@ -1,0 +1,19 @@
+# db-persistent-volume.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: vehicle-quotes-postgres-data-persisent-volume
+  labels:
+    type: local
+spec:
+  claimRef:
+    namespace: capstone-project1
+    name: vehicle-quotes-postgres-data-persisent-volume-claim
+  storageClassName: manual
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/home/ryans/projects/vehicle-quotes-postgres-data-prod"
+    # path: "/home/ubuntu/projects/vehicle-quotes-postgres-data-prod"

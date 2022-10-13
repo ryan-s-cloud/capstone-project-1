@@ -1,0 +1,18 @@
+# k8s/prod/kustomization.yaml
+kind: Kustomization
+
+bases:
+  - ../base
+
+namespace: capstone-project1
+
+resources:
+  - web/deployment.yaml
+
+patches:
+  - db/persistent-volume-host-path.yaml
+
+images:
+  - name: vehicle-quotes-web
+    newName: ryansconsultant/vehicle-quotes-prod
+    newTag: "2.0"

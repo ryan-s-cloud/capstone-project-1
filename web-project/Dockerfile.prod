@@ -1,0 +1,17 @@
+# Dockerfile.prod
+ARG VARIANT="5.0"
+FROM mcr.microsoft.com/dotnet/sdk:${VARIANT}
+
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+    && apt-get -y install --no-install-recommends postgresql-client-common postgresql-client
+
+RUN dotnet tool install dotnet-ef --global --ignore-failed-sources --version 5.*
+ENV PATH $PATH:/root/.dotnet/tools
+
+RUN dotnet dev-certs https
+
+WORKDIR /source
+
+COPY . .
+
+ENTRYPOINT ["tail", "-f", "/dev/null"]

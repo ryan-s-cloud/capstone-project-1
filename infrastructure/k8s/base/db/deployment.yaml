@@ -37,10 +37,11 @@
                  configMapKeyRef:
                    name: postgres-config
                    key: POSTGRES_PASSWORD
-           #resources:
-           # limits:
-           #   memory: 4Gi
-           #   cpu: "2"
+           resources:
+             limits:
+               memory: "500Mi" # Maximum amount of ram in a container
+             requests:
+               memory: "100"    # minimum amount of ram available in a Pod
        volumes:
          - name: vehicle-quotes-postgres-data-storage
            persistentVolumeClaim:

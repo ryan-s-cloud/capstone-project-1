@@ -7,6 +7,7 @@ resources:
   - db/service.yaml
   - db/deployment.yaml
   - db/network-policy.yaml
+  - db/horizontal-pod-scaling-by-memory-policy.yaml
   - web/service.yaml
 
 configMapGenerator:

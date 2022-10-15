@@ -218,6 +218,10 @@ resource "null_resource" "k8s_controller_bootstrap" {
     host        = "${element(aws_instance.controller.*.public_ip, count.index)}"
   }
 
+  provisioner "remote-exec" {
+    inline = [ "mkdir -p /home/ubuntu/k8s-scripts" ]
+  }
+
   provisioner "file" {
     source      = "scripts/k8s-bootstrap-machines.sh"
     destination = "/home/ubuntu/k8s-scripts/k8s-bootstrap-machines.sh"
@@ -256,6 +260,10 @@ resource "null_resource" "k8s_worker_bootstrap" {
     user        = "ubuntu"
     private_key = file(var.PRIV_KEY_PATH)
     host        = "${element(aws_instance.worker.*.public_ip, count.index)}"
+  }
+
+  provisioner "remote-exec" {
+    inline = [ "mkdir -p /home/ubuntu/k8s-scripts" ]
   }
 
   provisioner "file" {

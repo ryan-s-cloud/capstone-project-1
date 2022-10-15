@@ -14,4 +14,4 @@ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documen
 
 echo "[TASK 4] Apply metrics server components"
 # apply the metrics server
-kubectl apply -f /home/ubuntu/k8s-metrics-server-v0.5.2-components.yaml
+kubectl apply -f /home/ubuntu/k8s-scripts/k8s-metrics-server-v0.5.2-components.yaml

@@ -1,4 +1,4 @@
-# Project 1: Infra Optimization {#project-1-infra-optimization .list-paragraph}
+# Project 1: Infra Optimization 
 
 Ryan Saldanha <ryan.s.consultant@gmail.com>, April 2022 Cohort
 

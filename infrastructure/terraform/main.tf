@@ -220,25 +220,30 @@ resource "null_resource" "k8s_controller_bootstrap" {
 
   provisioner "file" {
     source      = "scripts/k8s-bootstrap-machines.sh"
-    destination = "/home/ubuntu/k8s-bootstrap-machines.sh"
+    destination = "/home/ubuntu/k8s-scripts/k8s-bootstrap-machines.sh"
   }
 
   provisioner "file" {
     source      = "scripts/k8s-start-controller.sh"
-    destination = "/home/ubuntu/k8s-start-controller.sh"
+    destination = "/home/ubuntu/k8s-scripts/k8s-start-controller.sh"
+  }
+
+  provisioner "file" {
+    source      = "scripts/k8s-metrics-server-v0.5.2-components.yaml"
+    destination = "/home/ubuntu/k8s-scripts/k8s-metrics-server-v0.5.2-components.yaml"
   }
 
   provisioner "remote-exec" {
     inline = [
-      "chmod +x /home/ubuntu/k8s-bootstrap-machines.sh",
-      "/home/ubuntu/k8s-bootstrap-machines.sh"
+      "chmod +x /home/ubuntu/k8s-scripts/k8s-bootstrap-machines.sh",
+      "/home/ubuntu/k8s-scripts/k8s-bootstrap-machines.sh"
     ]
   }
 
   provisioner "remote-exec" {
     inline = [
-      "chmod +x /home/ubuntu/k8s-start-controller.sh",
-      "/home/ubuntu/k8s-start-controller.sh"
+      "chmod +x /home/ubuntu/k8s-scripts/k8s-start-controller.sh",
+      "/home/ubuntu/k8s-scripts/k8s-start-controller.sh"
     ]
   }
 }
@@ -255,13 +260,13 @@ resource "null_resource" "k8s_worker_bootstrap" {
 
   provisioner "file" {
     source      = "scripts/k8s-bootstrap-machines.sh"
-    destination = "/home/ubuntu/k8s-bootstrap-machines.sh"
+    destination = "/home/ubuntu/k8s-scripts/k8s-bootstrap-machines.sh"
   }
 
   provisioner "remote-exec" {
     inline = [
-      "chmod +x /home/ubuntu/k8s-bootstrap-machines.sh",
-      "/home/ubuntu/k8s-bootstrap-machines.sh"
+      "chmod +x /home/ubuntu/k8s-scripts/k8s-bootstrap-machines.sh",
+      "/home/ubuntu/k8s-scripts/k8s-bootstrap-machines.sh"
     ]
   }
 }

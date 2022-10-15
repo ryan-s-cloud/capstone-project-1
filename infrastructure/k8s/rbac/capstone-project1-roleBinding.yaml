@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: capstone-project1-pod-role-rolebinding
+  namespace: capstone-project1
+subjects:
+- kind: User
+  name: capstone-project1-pod-user
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: capstone-project1-pod-role
+  apiGroup: rbac.authorization.k8s.io

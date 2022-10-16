@@ -17,7 +17,7 @@ sh build.sh
 1.  Copy the utility to the DB pod:
 
 ```sh
-kubectl cp \~/memory-stress
+kubectl cp ./memory-stress
 capstone-project1/vehicle-quotes-db-76f6f646c5-67lrt:/tmp
 ```
 

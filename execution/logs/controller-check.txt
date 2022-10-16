@@ -1,0 +1,11 @@
+buntu@ip-10-240-0-10:~$ kubectl version -short
+Client Version: version.Info{Major:"1", Minor:"20", GitVersion:"v1.20.12", GitCommit:"4bf2e32bb2b9fdeea19ff7cdc1fb51fb295ec407", GitTreeState:"clean", BuildDate:"2021-10-27T17:12:26Z", GoVersion:"go1.15.15", Compiler:"gc", Platform:"linux/amd64"}
+Unable to connect to the server: dial tcp: lookup hort on 127.0.0.53:53: server misbehaving
+ubuntu@ip-10-240-0-10:~$ docker --version
+Docker version 20.10.12, build 20.10.12-0ubuntu2~20.04.1
+ubuntu@ip-10-240-0-10:~$ kubectl get nodes -o wide
+NAME             STATUS   ROLES                  AGE     VERSION    INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION    CONTAINER-RUNTIME
+ip-10-240-0-10   Ready    control-plane,master   10m     v1.20.12   10.240.0.10   <none>        Ubuntu 20.04.5 LTS   5.15.0-1021-aws   docker://20.10.12
+ip-10-240-0-20   Ready    <none>                 5m14s   v1.20.12   10.240.0.20   <none>        Ubuntu 20.04.5 LTS   5.15.0-1021-aws   docker://20.10.12
+ip-10-240-0-21   Ready    <none>                 3m57s   v1.20.12   10.240.0.21   <none>        Ubuntu 20.04.5 LTS   5.15.0-1021-aws   docker://20.10.12
+ubuntu@ip-10-240-0-10:~$ 

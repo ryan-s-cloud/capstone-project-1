@@ -1,0 +1,20 @@
+# This is on worker1
+ubuntu@ip-10-240-0-21:~$ tree projects/
+projects/
+├── vehicle-quotes
+└── vehicle-quotes-postgres-data-dev [error opening dir]
+
+2 directories, 0 files
+ubuntu@ip-10-240-0-21:~$ git clone https://github.com/ryan-s-cloud/capstone-project-1.git > /dev/null 2>&1
+ubuntu@ip-10-240-0-21:~$ cd capstone-project-1/web-project/
+ubuntu@ip-10-240-0-21:~/capstone-project-1/web-project$ ls
+Dockerfile.dev  Dockerfile.prod  VehicleQuotes  VehicleQuotes.Test  VehicleQuotes.sln
+ubuntu@ip-10-240-0-21:~/capstone-project-1/web-project$ cp -R . ~/projects/vehicle-quotes/.
+cp: cannot create regular file '/home/ubuntu/projects/vehicle-quotes/././Dockerfile.dev': Permission denied
+cp: cannot create regular file '/home/ubuntu/projects/vehicle-quotes/././Dockerfile.prod': Permission denied
+cp: cannot create directory '/home/ubuntu/projects/vehicle-quotes/././VehicleQuotes.Test': Permission denied
+cp: cannot create regular file '/home/ubuntu/projects/vehicle-quotes/././VehicleQuotes.sln': Permission denied
+cp: cannot create directory '/home/ubuntu/projects/vehicle-quotes/././VehicleQuotes': Permission denied
+ubuntu@ip-10-240-0-21:~/capstone-project-1/web-project$ sudo cp -R . ~/projects/vehicle-quotes/.
+ubuntu@ip-10-240-0-21:~/capstone-project-1/web-project$ sudo chmod 777 -R . ~/projects/vehicle-quotes/.
+ubuntu@ip-10-240-0-21:~/capstone-project-1/web-project$ 

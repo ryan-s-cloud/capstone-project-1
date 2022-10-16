@@ -1,0 +1,1608 @@
+ryans@controller:~/Capstone/capstone-project/infrastructure/terraform$ terraform apply -auto-approve
+data.aws_ami.ubuntu: Reading...
+data.aws_ami.ubuntu: Read complete after 1s [id=ami-0f136f37138f59e54]
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_instance.controller[0] will be created
+  + resource "aws_instance" "controller" {
+      + ami                                  = "ami-0f136f37138f59e54"
+      + arn                                  = (known after apply)
+      + associate_public_ip_address          = true
+      + availability_zone                    = (known after apply)
+      + cpu_core_count                       = (known after apply)
+      + cpu_threads_per_core                 = (known after apply)
+      + disable_api_stop                     = (known after apply)
+      + disable_api_termination              = (known after apply)
+      + ebs_optimized                        = (known after apply)
+      + get_password_data                    = false
+      + host_id                              = (known after apply)
+      + host_resource_group_arn              = (known after apply)
+      + id                                   = (known after apply)
+      + instance_initiated_shutdown_behavior = (known after apply)
+      + instance_state                       = (known after apply)
+      + instance_type                        = "t2.micro"
+      + ipv6_address_count                   = (known after apply)
+      + ipv6_addresses                       = (known after apply)
+      + key_name                             = "k8s"
+      + monitoring                           = (known after apply)
+      + outpost_arn                          = (known after apply)
+      + password_data                        = (known after apply)
+      + placement_group                      = (known after apply)
+      + placement_partition_number           = (known after apply)
+      + primary_network_interface_id         = (known after apply)
+      + private_dns                          = (known after apply)
+      + private_ip                           = "10.240.0.10"
+      + public_dns                           = (known after apply)
+      + public_ip                            = (known after apply)
+      + secondary_private_ips                = (known after apply)
+      + security_groups                      = (known after apply)
+      + source_dest_check                    = false
+      + subnet_id                            = (known after apply)
+      + tags                                 = {
+          + "Name" = "controller-1"
+        }
+      + tags_all                             = {
+          + "Name" = "controller-1"
+        }
+      + tenancy                              = (known after apply)
+      + user_data                            = "2ad4c8fd9f1b61f5126b29d7688e8fb10f605789"
+      + user_data_base64                     = (known after apply)
+      + user_data_replace_on_change          = false
+      + vpc_security_group_ids               = (known after apply)
+
+      + capacity_reservation_specification {
+          + capacity_reservation_preference = (known after apply)
+
+          + capacity_reservation_target {
+              + capacity_reservation_id                 = (known after apply)
+              + capacity_reservation_resource_group_arn = (known after apply)
+            }
+        }
+
+      + ebs_block_device {
+          + delete_on_termination = (known after apply)
+          + device_name           = (known after apply)
+          + encrypted             = (known after apply)
+          + iops                  = (known after apply)
+          + kms_key_id            = (known after apply)
+          + snapshot_id           = (known after apply)
+          + tags                  = (known after apply)
+          + throughput            = (known after apply)
+          + volume_id             = (known after apply)
+          + volume_size           = (known after apply)
+          + volume_type           = (known after apply)
+        }
+
+      + enclave_options {
+          + enabled = (known after apply)
+        }
+
+      + ephemeral_block_device {
+          + device_name  = (known after apply)
+          + no_device    = (known after apply)
+          + virtual_name = (known after apply)
+        }
+
+      + maintenance_options {
+          + auto_recovery = (known after apply)
+        }
+
+      + metadata_options {
+          + http_endpoint               = (known after apply)
+          + http_put_response_hop_limit = (known after apply)
+          + http_tokens                 = (known after apply)
+          + instance_metadata_tags      = (known after apply)
+        }
+
+      + network_interface {
+          + delete_on_termination = (known after apply)
+          + device_index          = (known after apply)
+          + network_card_index    = (known after apply)
+          + network_interface_id  = (known after apply)
+        }
+
+      + private_dns_name_options {
+          + enable_resource_name_dns_a_record    = (known after apply)
+          + enable_resource_name_dns_aaaa_record = (known after apply)
+          + hostname_type                        = (known after apply)
+        }
+
+      + root_block_device {
+          + delete_on_termination = (known after apply)
+          + device_name           = (known after apply)
+          + encrypted             = (known after apply)
+          + iops                  = (known after apply)
+          + kms_key_id            = (known after apply)
+          + tags                  = (known after apply)
+          + throughput            = (known after apply)
+          + volume_id             = (known after apply)
+          + volume_size           = (known after apply)
+          + volume_type           = (known after apply)
+        }
+    }
+
+  # aws_instance.worker[0] will be created
+  + resource "aws_instance" "worker" {
+      + ami                                  = "ami-0f136f37138f59e54"
+      + arn                                  = (known after apply)
+      + associate_public_ip_address          = true
+      + availability_zone                    = (known after apply)
+      + cpu_core_count                       = (known after apply)
+      + cpu_threads_per_core                 = (known after apply)
+      + disable_api_stop                     = (known after apply)
+      + disable_api_termination              = (known after apply)
+      + ebs_optimized                        = (known after apply)
+      + get_password_data                    = false
+      + host_id                              = (known after apply)
+      + host_resource_group_arn              = (known after apply)
+      + id                                   = (known after apply)
+      + instance_initiated_shutdown_behavior = (known after apply)
+      + instance_state                       = (known after apply)
+      + instance_type                        = "t2.micro"
+      + ipv6_address_count                   = (known after apply)
+      + ipv6_addresses                       = (known after apply)
+      + key_name                             = "k8s"
+      + monitoring                           = (known after apply)
+      + outpost_arn                          = (known after apply)
+      + password_data                        = (known after apply)
+      + placement_group                      = (known after apply)
+      + placement_partition_number           = (known after apply)
+      + primary_network_interface_id         = (known after apply)
+      + private_dns                          = (known after apply)
+      + private_ip                           = "10.240.0.20"
+      + public_dns                           = (known after apply)
+      + public_ip                            = (known after apply)
+      + secondary_private_ips                = (known after apply)
+      + security_groups                      = (known after apply)
+      + source_dest_check                    = false
+      + subnet_id                            = (known after apply)
+      + tags                                 = {
+          + "Name" = "worker-1"
+        }
+      + tags_all                             = {
+          + "Name" = "worker-1"
+        }
+      + tenancy                              = (known after apply)
+      + user_data                            = "97f21f965b1ec4c952423313b4f3b1e4eed31a90"
+      + user_data_base64                     = (known after apply)
+      + user_data_replace_on_change          = false
+      + vpc_security_group_ids               = (known after apply)
+
+      + capacity_reservation_specification {
+          + capacity_reservation_preference = (known after apply)
+
+          + capacity_reservation_target {
+              + capacity_reservation_id                 = (known after apply)
+              + capacity_reservation_resource_group_arn = (known after apply)
+            }
+        }
+
+      + ebs_block_device {
+          + delete_on_termination = (known after apply)
+          + device_name           = (known after apply)
+          + encrypted             = (known after apply)
+          + iops                  = (known after apply)
+          + kms_key_id            = (known after apply)
+          + snapshot_id           = (known after apply)
+          + tags                  = (known after apply)
+          + throughput            = (known after apply)
+          + volume_id             = (known after apply)
+          + volume_size           = (known after apply)
+          + volume_type           = (known after apply)
+        }
+
+      + enclave_options {
+          + enabled = (known after apply)
+        }
+
+      + ephemeral_block_device {
+          + device_name  = (known after apply)
+          + no_device    = (known after apply)
+          + virtual_name = (known after apply)
+        }
+
+      + maintenance_options {
+          + auto_recovery = (known after apply)
+        }
+
+      + metadata_options {
+          + http_endpoint               = (known after apply)
+          + http_put_response_hop_limit = (known after apply)
+          + http_tokens                 = (known after apply)
+          + instance_metadata_tags      = (known after apply)
+        }
+
+      + network_interface {
+          + delete_on_termination = (known after apply)
+          + device_index          = (known after apply)
+          + network_card_index    = (known after apply)
+          + network_interface_id  = (known after apply)
+        }
+
+      + private_dns_name_options {
+          + enable_resource_name_dns_a_record    = (known after apply)
+          + enable_resource_name_dns_aaaa_record = (known after apply)
+          + hostname_type                        = (known after apply)
+        }
+
+      + root_block_device {
+          + delete_on_termination = (known after apply)
+          + device_name           = (known after apply)
+          + encrypted             = (known after apply)
+          + iops                  = (known after apply)
+          + kms_key_id            = (known after apply)
+          + tags                  = (known after apply)
+          + throughput            = (known after apply)
+          + volume_id             = (known after apply)
+          + volume_size           = (known after apply)
+          + volume_type           = (known after apply)
+        }
+    }
+
+  # aws_instance.worker[1] will be created
+  + resource "aws_instance" "worker" {
+      + ami                                  = "ami-0f136f37138f59e54"
+      + arn                                  = (known after apply)
+      + associate_public_ip_address          = true
+      + availability_zone                    = (known after apply)
+      + cpu_core_count                       = (known after apply)
+      + cpu_threads_per_core                 = (known after apply)
+      + disable_api_stop                     = (known after apply)
+      + disable_api_termination              = (known after apply)
+      + ebs_optimized                        = (known after apply)
+      + get_password_data                    = false
+      + host_id                              = (known after apply)
+      + host_resource_group_arn              = (known after apply)
+      + id                                   = (known after apply)
+      + instance_initiated_shutdown_behavior = (known after apply)
+      + instance_state                       = (known after apply)
+      + instance_type                        = "t2.micro"
+      + ipv6_address_count                   = (known after apply)
+      + ipv6_addresses                       = (known after apply)
+      + key_name                             = "k8s"
+      + monitoring                           = (known after apply)
+      + outpost_arn                          = (known after apply)
+      + password_data                        = (known after apply)
+      + placement_group                      = (known after apply)
+      + placement_partition_number           = (known after apply)
+      + primary_network_interface_id         = (known after apply)
+      + private_dns                          = (known after apply)
+      + private_ip                           = "10.240.0.21"
+      + public_dns                           = (known after apply)
+      + public_ip                            = (known after apply)
+      + secondary_private_ips                = (known after apply)
+      + security_groups                      = (known after apply)
+      + source_dest_check                    = false
+      + subnet_id                            = (known after apply)
+      + tags                                 = {
+          + "Name" = "worker-2"
+        }
+      + tags_all                             = {
+          + "Name" = "worker-2"
+        }
+      + tenancy                              = (known after apply)
+      + user_data                            = "cacb4fc30f5f6f64296d2febca392ea35f4811e4"
+      + user_data_base64                     = (known after apply)
+      + user_data_replace_on_change          = false
+      + vpc_security_group_ids               = (known after apply)
+
+      + capacity_reservation_specification {
+          + capacity_reservation_preference = (known after apply)
+
+          + capacity_reservation_target {
+              + capacity_reservation_id                 = (known after apply)
+              + capacity_reservation_resource_group_arn = (known after apply)
+            }
+        }
+
+      + ebs_block_device {
+          + delete_on_termination = (known after apply)
+          + device_name           = (known after apply)
+          + encrypted             = (known after apply)
+          + iops                  = (known after apply)
+          + kms_key_id            = (known after apply)
+          + snapshot_id           = (known after apply)
+          + tags                  = (known after apply)
+          + throughput            = (known after apply)
+          + volume_id             = (known after apply)
+          + volume_size           = (known after apply)
+          + volume_type           = (known after apply)
+        }
+
+      + enclave_options {
+          + enabled = (known after apply)
+        }
+
+      + ephemeral_block_device {
+          + device_name  = (known after apply)
+          + no_device    = (known after apply)
+          + virtual_name = (known after apply)
+        }
+
+      + maintenance_options {
+          + auto_recovery = (known after apply)
+        }
+
+      + metadata_options {
+          + http_endpoint               = (known after apply)
+          + http_put_response_hop_limit = (known after apply)
+          + http_tokens                 = (known after apply)
+          + instance_metadata_tags      = (known after apply)
+        }
+
+      + network_interface {
+          + delete_on_termination = (known after apply)
+          + device_index          = (known after apply)
+          + network_card_index    = (known after apply)
+          + network_interface_id  = (known after apply)
+        }
+
+      + private_dns_name_options {
+          + enable_resource_name_dns_a_record    = (known after apply)
+          + enable_resource_name_dns_aaaa_record = (known after apply)
+          + hostname_type                        = (known after apply)
+        }
+
+      + root_block_device {
+          + delete_on_termination = (known after apply)
+          + device_name           = (known after apply)
+          + encrypted             = (known after apply)
+          + iops                  = (known after apply)
+          + kms_key_id            = (known after apply)
+          + tags                  = (known after apply)
+          + throughput            = (known after apply)
+          + volume_id             = (known after apply)
+          + volume_size           = (known after apply)
+          + volume_type           = (known after apply)
+        }
+    }
+
+  # aws_internet_gateway.k8s will be created
+  + resource "aws_internet_gateway" "k8s" {
+      + arn      = (known after apply)
+      + id       = (known after apply)
+      + owner_id = (known after apply)
+      + tags     = {
+          + "Name" = "kubernetes"
+        }
+      + tags_all = {
+          + "Name" = "kubernetes"
+        }
+      + vpc_id   = (known after apply)
+    }
+
+  # aws_key_pair.k8s will be created
+  + resource "aws_key_pair" "k8s" {
+      + arn             = (known after apply)
+      + fingerprint     = (known after apply)
+      + id              = (known after apply)
+      + key_name        = "k8s"
+      + key_name_prefix = (known after apply)
+      + key_pair_id     = (known after apply)
+      + key_type        = (known after apply)
+      + public_key      = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCrVMlABD3GDaIPaPNa+jFm7o7riq5OYuGHNk4OM0GLlSp4GIZplhgXLClN5abES6lN9Ee5c5qrs5dlbqDu8FdJn5/sz29a1j4+ax8SOQc49GLtRsfN+Ntw3y1LMrLuUjDxBa+zpwWE8r+RA8C7kTC7+9F6HxRAzY8jFMznLNL8SYSDJOdlVxLGG0g/FxYtsnziZTC4GAK+CS7Ngrce45d35bugNllCzzbDmbwWLMQh8YAoHyqF4NJkM5kamkRKiq8/w6wrysbDqfToF44l0nYY8nEQb6ykAc8z9WmiOckQ0cTubWjymyzDP3HupoECP3SVaP1PXmz94HjLRoavvZpUo7T8raP9MOCMk5Aofozp+NUqM1pT4G1Dd2QJriRgfqbiCw1RvpGhlK5O21Ny0UBSqRFtWmIAxXEtslkK2D3NYJ0pZyUFeJsFXowFZDc8toL+qQgfFZKGpq1NfaxrtJTkYN+y0pGBzjXwqGUlBOUscoyim42gTOpd/YxacCtzNujtvOGx5U0PV6SwJ+uMpsD8yI2ziPKt+LKKKENcbtHABYJ69GPYdELdpB1YSk/UeeChoWdm4YgojQRIad568lqnw473+ac1oJ4KZvwz+XoOKMyL3Go2pdgPp00heFJGmoCRj+YQWiG0locSc/7KPKQZLOekV0N/FCLJk2X5rpXcVw== ryans@controller"
+      + tags_all        = (known after apply)
+    }
+
+  # aws_lb.k8s will be created
+  + resource "aws_lb" "k8s" {
+      + arn                              = (known after apply)
+      + arn_suffix                       = (known after apply)
+      + dns_name                         = (known after apply)
+      + enable_cross_zone_load_balancing = false
+      + enable_deletion_protection       = false
+      + id                               = (known after apply)
+      + internal                         = false
+      + ip_address_type                  = (known after apply)
+      + load_balancer_type               = "network"
+      + name                             = "kubernetes"
+      + security_groups                  = (known after apply)
+      + subnets                          = (known after apply)
+      + tags_all                         = (known after apply)
+      + vpc_id                           = (known after apply)
+      + zone_id                          = (known after apply)
+
+      + subnet_mapping {
+          + allocation_id        = (known after apply)
+          + ipv6_address         = (known after apply)
+          + outpost_id           = (known after apply)
+          + private_ipv4_address = (known after apply)
+          + subnet_id            = (known after apply)
+        }
+    }
+
+  # aws_lb_listener.k8s will be created
+  + resource "aws_lb_listener" "k8s" {
+      + arn               = (known after apply)
+      + id                = (known after apply)
+      + load_balancer_arn = (known after apply)
+      + port              = 6443
+      + protocol          = "TCP"
+      + ssl_policy        = (known after apply)
+      + tags_all          = (known after apply)
+
+      + default_action {
+          + order            = (known after apply)
+          + target_group_arn = (known after apply)
+          + type             = "forward"
+        }
+    }
+
+  # aws_lb_target_group.k8s will be created
+  + resource "aws_lb_target_group" "k8s" {
+      + arn                                = (known after apply)
+      + arn_suffix                         = (known after apply)
+      + connection_termination             = false
+      + deregistration_delay               = "300"
+      + id                                 = (known after apply)
+      + ip_address_type                    = (known after apply)
+      + lambda_multi_value_headers_enabled = false
+      + load_balancing_algorithm_type      = (known after apply)
+      + name                               = "kubernetes"
+      + port                               = 6443
+      + preserve_client_ip                 = (known after apply)
+      + protocol                           = "TCP"
+      + protocol_version                   = (known after apply)
+      + proxy_protocol_v2                  = false
+      + slow_start                         = 0
+      + tags_all                           = (known after apply)
+      + target_type                        = "ip"
+      + vpc_id                             = (known after apply)
+
+      + health_check {
+          + enabled             = (known after apply)
+          + healthy_threshold   = (known after apply)
+          + interval            = (known after apply)
+          + matcher             = (known after apply)
+          + path                = (known after apply)
+          + port                = (known after apply)
+          + protocol            = (known after apply)
+          + timeout             = (known after apply)
+          + unhealthy_threshold = (known after apply)
+        }
+
+      + stickiness {
+          + cookie_duration = (known after apply)
+          + cookie_name     = (known after apply)
+          + enabled         = (known after apply)
+          + type            = (known after apply)
+        }
+    }
+
+  # aws_lb_target_group_attachment.k8s[0] will be created
+  + resource "aws_lb_target_group_attachment" "k8s" {
+      + id               = (known after apply)
+      + target_group_arn = (known after apply)
+      + target_id        = "10.240.0.10"
+    }
+
+  # aws_route_table.k8s will be created
+  + resource "aws_route_table" "k8s" {
+      + arn              = (known after apply)
+      + id               = (known after apply)
+      + owner_id         = (known after apply)
+      + propagating_vgws = (known after apply)
+      + route            = [
+          + {
+              + carrier_gateway_id         = ""
+              + cidr_block                 = "0.0.0.0/0"
+              + core_network_arn           = ""
+              + destination_prefix_list_id = ""
+              + egress_only_gateway_id     = ""
+              + gateway_id                 = (known after apply)
+              + instance_id                = ""
+              + ipv6_cidr_block            = ""
+              + local_gateway_id           = ""
+              + nat_gateway_id             = ""
+              + network_interface_id       = ""
+              + transit_gateway_id         = ""
+              + vpc_endpoint_id            = ""
+              + vpc_peering_connection_id  = ""
+            },
+        ]
+      + tags             = {
+          + "Name" = "kubernetes"
+        }
+      + tags_all         = {
+          + "Name" = "kubernetes"
+        }
+      + vpc_id           = (known after apply)
+    }
+
+  # aws_route_table_association.k8s will be created
+  + resource "aws_route_table_association" "k8s" {
+      + id             = (known after apply)
+      + route_table_id = (known after apply)
+      + subnet_id      = (known after apply)
+    }
+
+  # aws_security_group.k8s will be created
+  + resource "aws_security_group" "k8s" {
+      + arn                    = (known after apply)
+      + description            = "Kubernetes security group"
+      + egress                 = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = ""
+              + from_port        = 0
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "-1"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 0
+            },
+        ]
+      + id                     = (known after apply)
+      + ingress                = [
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = ""
+              + from_port        = 0
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "icmp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = -1
+            },
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = ""
+              + from_port        = 0
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 22
+            },
+          + {
+              + cidr_blocks      = [
+                  + "0.0.0.0/0",
+                ]
+              + description      = ""
+              + from_port        = 0
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "tcp"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 6443
+            },
+          + {
+              + cidr_blocks      = [
+                  + "10.240.0.0/24",
+                  + "10.200.0.0/16",
+                ]
+              + description      = ""
+              + from_port        = 0
+              + ipv6_cidr_blocks = []
+              + prefix_list_ids  = []
+              + protocol         = "-1"
+              + security_groups  = []
+              + self             = false
+              + to_port          = 0
+            },
+        ]
+      + name                   = "kubernetes"
+      + name_prefix            = (known after apply)
+      + owner_id               = (known after apply)
+      + revoke_rules_on_delete = false
+      + tags                   = {
+          + "Name" = "kubernetes"
+        }
+      + tags_all               = {
+          + "Name" = "kubernetes"
+        }
+      + vpc_id                 = (known after apply)
+    }
+
+  # aws_subnet.k8s will be created
+  + resource "aws_subnet" "k8s" {
+      + arn                                            = (known after apply)
+      + assign_ipv6_address_on_creation                = false
+      + availability_zone                              = (known after apply)
+      + availability_zone_id                           = (known after apply)
+      + cidr_block                                     = "10.240.0.0/24"
+      + enable_dns64                                   = false
+      + enable_resource_name_dns_a_record_on_launch    = false
+      + enable_resource_name_dns_aaaa_record_on_launch = false
+      + id                                             = (known after apply)
+      + ipv6_cidr_block_association_id                 = (known after apply)
+      + ipv6_native                                    = false
+      + map_public_ip_on_launch                        = false
+      + owner_id                                       = (known after apply)
+      + private_dns_hostname_type_on_launch            = (known after apply)
+      + tags                                           = {
+          + "Name" = "kubernetes"
+        }
+      + tags_all                                       = {
+          + "Name" = "kubernetes"
+        }
+      + vpc_id                                         = (known after apply)
+    }
+
+  # aws_vpc.k8s will be created
+  + resource "aws_vpc" "k8s" {
+      + arn                                  = (known after apply)
+      + cidr_block                           = "10.240.0.0/24"
+      + default_network_acl_id               = (known after apply)
+      + default_route_table_id               = (known after apply)
+      + default_security_group_id            = (known after apply)
+      + dhcp_options_id                      = (known after apply)
+      + enable_classiclink                   = (known after apply)
+      + enable_classiclink_dns_support       = (known after apply)
+      + enable_dns_hostnames                 = true
+      + enable_dns_support                   = true
+      + id                                   = (known after apply)
+      + instance_tenancy                     = "default"
+      + ipv6_association_id                  = (known after apply)
+      + ipv6_cidr_block                      = (known after apply)
+      + ipv6_cidr_block_network_border_group = (known after apply)
+      + main_route_table_id                  = (known after apply)
+      + owner_id                             = (known after apply)
+      + tags                                 = {
+          + "Name" = "kubernetes-simplilearn"
+        }
+      + tags_all                             = {
+          + "Name" = "kubernetes-simplilearn"
+        }
+    }
+
+  # aws_vpc_dhcp_options.k8s will be created
+  + resource "aws_vpc_dhcp_options" "k8s" {
+      + arn                 = (known after apply)
+      + domain_name         = "us-east-2.compute.internal"
+      + domain_name_servers = [
+          + "AmazonProvidedDNS",
+        ]
+      + id                  = (known after apply)
+      + owner_id            = (known after apply)
+      + tags                = {
+          + "Name" = "kubernetes"
+        }
+      + tags_all            = {
+          + "Name" = "kubernetes"
+        }
+    }
+
+  # aws_vpc_dhcp_options_association.k8s will be created
+  + resource "aws_vpc_dhcp_options_association" "k8s" {
+      + dhcp_options_id = (known after apply)
+      + id              = (known after apply)
+      + vpc_id          = (known after apply)
+    }
+
+  # null_resource.k8s_controller_bootstrap[0] will be created
+  + resource "null_resource" "k8s_controller_bootstrap" {
+      + id = (known after apply)
+    }
+
+  # null_resource.k8s_worker_bootstrap[0] will be created
+  + resource "null_resource" "k8s_worker_bootstrap" {
+      + id = (known after apply)
+    }
+
+  # null_resource.k8s_worker_bootstrap[1] will be created
+  + resource "null_resource" "k8s_worker_bootstrap" {
+      + id = (known after apply)
+    }
+
+Plan: 19 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + controller_instance_ips = [
+      + (known after apply),
+    ]
+  + worker_instance_ips     = [
+      + (known after apply),
+      + (known after apply),
+    ]
+aws_key_pair.k8s: Creating...
+aws_vpc_dhcp_options.k8s: Creating...
+aws_vpc.k8s: Creating...
+aws_key_pair.k8s: Creation complete after 1s [id=k8s]
+aws_vpc_dhcp_options.k8s: Creation complete after 1s [id=dopt-0fb189a82c22c035d]
+aws_vpc.k8s: Still creating... [10s elapsed]
+aws_vpc.k8s: Creation complete after 13s [id=vpc-02ef3adba6218e59b]
+aws_internet_gateway.k8s: Creating...
+aws_vpc_dhcp_options_association.k8s: Creating...
+aws_subnet.k8s: Creating...
+aws_lb_target_group.k8s: Creating...
+aws_security_group.k8s: Creating...
+aws_vpc_dhcp_options_association.k8s: Creation complete after 1s [id=dopt-0fb189a82c22c035d-vpc-02ef3adba6218e59b]
+aws_internet_gateway.k8s: Creation complete after 1s [id=igw-01e2a618ccabad2c2]
+aws_route_table.k8s: Creating...
+aws_subnet.k8s: Creation complete after 1s [id=subnet-026e4a90b0122bdf4]
+aws_lb.k8s: Creating...
+aws_lb_target_group.k8s: Creation complete after 2s [id=arn:aws:elasticloadbalancing:us-east-1:581573371430:targetgroup/kubernetes/eff725216252f359]
+aws_lb_target_group_attachment.k8s[0]: Creating...
+aws_route_table.k8s: Creation complete after 1s [id=rtb-0230a0d06c833ef12]
+aws_route_table_association.k8s: Creating...
+aws_lb_target_group_attachment.k8s[0]: Creation complete after 0s [id=arn:aws:elasticloadbalancing:us-east-1:581573371430:targetgroup/kubernetes/eff725216252f359-20221015221316346700000001]
+aws_route_table_association.k8s: Creation complete after 1s [id=rtbassoc-06067a99ae2ee772d]
+aws_security_group.k8s: Creation complete after 3s [id=sg-026a75b68243a86b7]
+aws_instance.controller[0]: Creating...
+aws_instance.worker[1]: Creating...
+aws_instance.worker[0]: Creating...
+aws_lb.k8s: Still creating... [10s elapsed]
+aws_instance.controller[0]: Still creating... [10s elapsed]
+aws_instance.worker[0]: Still creating... [10s elapsed]
+aws_instance.worker[1]: Still creating... [10s elapsed]
+aws_lb.k8s: Still creating... [20s elapsed]
+aws_instance.worker[1]: Still creating... [20s elapsed]
+aws_instance.controller[0]: Still creating... [20s elapsed]
+aws_instance.worker[0]: Still creating... [20s elapsed]
+aws_lb.k8s: Still creating... [30s elapsed]
+aws_instance.worker[0]: Still creating... [30s elapsed]
+aws_instance.worker[1]: Still creating... [30s elapsed]
+aws_instance.controller[0]: Still creating... [30s elapsed]
+aws_instance.worker[1]: Creation complete after 34s [id=i-05729e42a5eeb3408]
+aws_instance.worker[0]: Creation complete after 34s [id=i-0bdd8653a69a31bc1]
+null_resource.k8s_worker_bootstrap[1]: Creating...
+null_resource.k8s_worker_bootstrap[0]: Creating...
+null_resource.k8s_worker_bootstrap[0]: Provisioning with 'remote-exec'...
+null_resource.k8s_worker_bootstrap[1]: Provisioning with 'remote-exec'...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Connecting to remote host via SSH...
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   Host: 54.86.86.74
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   User: ubuntu
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   Password: false
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   Private key: true
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   Certificate: false
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   SSH Agent: true
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   Checking Host Key: false
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   Target Platform: unix
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Connecting to remote host via SSH...
+null_resource.k8s_worker_bootstrap[0] (remote-exec):   Host: 3.91.204.162
+null_resource.k8s_worker_bootstrap[0] (remote-exec):   User: ubuntu
+null_resource.k8s_worker_bootstrap[0] (remote-exec):   Password: false
+null_resource.k8s_worker_bootstrap[0] (remote-exec):   Private key: true
+null_resource.k8s_worker_bootstrap[0] (remote-exec):   Certificate: false
+null_resource.k8s_worker_bootstrap[0] (remote-exec):   SSH Agent: true
+null_resource.k8s_worker_bootstrap[0] (remote-exec):   Checking Host Key: false
+null_resource.k8s_worker_bootstrap[0] (remote-exec):   Target Platform: unix
+aws_instance.controller[0]: Creation complete after 34s [id=i-0ad75e3c462bbb7e5]
+null_resource.k8s_controller_bootstrap[0]: Creating...
+null_resource.k8s_controller_bootstrap[0]: Provisioning with 'remote-exec'...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Connecting to remote host via SSH...
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   Host: 54.208.59.38
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   User: ubuntu
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   Password: false
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   Private key: true
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   Certificate: false
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   SSH Agent: true
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   Checking Host Key: false
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   Target Platform: unix
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Connecting to remote host via SSH...
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   Host: 54.208.59.38
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   User: ubuntu
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   Password: false
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   Private key: true
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   Certificate: false
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   SSH Agent: true
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   Checking Host Key: false
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   Target Platform: unix
+aws_lb.k8s: Still creating... [40s elapsed]
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Connected!
+null_resource.k8s_worker_bootstrap[0]: Provisioning with 'file'...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Connected!
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Connecting to remote host via SSH...
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   Host: 54.86.86.74
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   User: ubuntu
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   Password: false
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   Private key: true
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   Certificate: false
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   SSH Agent: true
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   Checking Host Key: false
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   Target Platform: unix
+null_resource.k8s_worker_bootstrap[0]: Provisioning with 'remote-exec'...
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Connecting to remote host via SSH...
+null_resource.k8s_worker_bootstrap[0] (remote-exec):   Host: 3.91.204.162
+null_resource.k8s_worker_bootstrap[0] (remote-exec):   User: ubuntu
+null_resource.k8s_worker_bootstrap[0] (remote-exec):   Password: false
+null_resource.k8s_worker_bootstrap[0] (remote-exec):   Private key: true
+null_resource.k8s_worker_bootstrap[0] (remote-exec):   Certificate: false
+null_resource.k8s_worker_bootstrap[0] (remote-exec):   SSH Agent: true
+null_resource.k8s_worker_bootstrap[0] (remote-exec):   Checking Host Key: false
+null_resource.k8s_worker_bootstrap[0] (remote-exec):   Target Platform: unix
+null_resource.k8s_controller_bootstrap[0]: Provisioning with 'file'...
+null_resource.k8s_worker_bootstrap[1]: Still creating... [10s elapsed]
+null_resource.k8s_worker_bootstrap[0]: Still creating... [10s elapsed]
+null_resource.k8s_controller_bootstrap[0]: Still creating... [10s elapsed]
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Connected!
+null_resource.k8s_controller_bootstrap[0]: Provisioning with 'file'...
+null_resource.k8s_worker_bootstrap[0] (remote-exec): [TASK 1] Disable and turn off SWAP
+null_resource.k8s_worker_bootstrap[0] (remote-exec): [TASK 2] Enable and Load Kernel modules
+null_resource.k8s_worker_bootstrap[0] (remote-exec): [TASK 3] Add Kernel settings
+null_resource.k8s_worker_bootstrap[0] (remote-exec): [TASK 4] Install docker runtime
+null_resource.k8s_controller_bootstrap[0]: Provisioning with 'file'...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Connected!
+aws_lb.k8s: Still creating... [50s elapsed]
+null_resource.k8s_controller_bootstrap[0]: Provisioning with 'remote-exec'...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Connecting to remote host via SSH...
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   Host: 54.208.59.38
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   User: ubuntu
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   Password: false
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   Private key: true
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   Certificate: false
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   SSH Agent: true
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   Checking Host Key: false
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   Target Platform: unix
+null_resource.k8s_worker_bootstrap[1]: Provisioning with 'file'...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Connected!
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [TASK 1] Disable and turn off SWAP
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [TASK 2] Enable and Load Kernel modules
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [TASK 3] Add Kernel settings
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [TASK 4] Install docker runtime
+null_resource.k8s_worker_bootstrap[1]: Provisioning with 'remote-exec'...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Connecting to remote host via SSH...
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   Host: 54.86.86.74
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   User: ubuntu
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   Password: false
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   Private key: true
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   Certificate: false
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   SSH Agent: true
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   Checking Host Key: false
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   Target Platform: unix
+null_resource.k8s_worker_bootstrap[1]: Still creating... [20s elapsed]
+null_resource.k8s_worker_bootstrap[0]: Still creating... [20s elapsed]
+null_resource.k8s_controller_bootstrap[0]: Still creating... [20s elapsed]
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Connected!
+null_resource.k8s_worker_bootstrap[1] (remote-exec): [TASK 1] Disable and turn off SWAP
+null_resource.k8s_worker_bootstrap[1] (remote-exec): [TASK 2] Enable and Load Kernel modules
+null_resource.k8s_worker_bootstrap[1] (remote-exec): [TASK 3] Add Kernel settings
+null_resource.k8s_worker_bootstrap[1] (remote-exec): [TASK 4] Install docker runtime
+null_resource.k8s_worker_bootstrap[0] (remote-exec): curl is already the newest version (7.68.0-1ubuntu2.13).
+null_resource.k8s_worker_bootstrap[0] (remote-exec): curl set to manually installed.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): git is already the newest version (1:2.25.1-1ubuntu3.5).
+null_resource.k8s_worker_bootstrap[0] (remote-exec): git set to manually installed.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): The following NEW packages will be installed:
+null_resource.k8s_worker_bootstrap[0] (remote-exec):   apt-transport-https
+null_resource.k8s_worker_bootstrap[0] (remote-exec): 0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Need to get 1708 B of archives.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): After this operation, 161 kB of additional disk space will be used.
+                                                     Selecting previously unselected package apt-transport-https.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ...
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 5%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 10%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 15%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 20%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 25%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 30%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 35%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 40%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 45%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 50%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 55%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 60%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 65%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 70%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 75%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 80%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 85%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 90%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 95%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 100%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 61772 files and directories currently installed.)
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Preparing to unpack .../apt-transport-https_2.0.2ubuntu0.2_all.deb ...
+Progress: [ 20%] [###...............] (remote-exec): Unpacking apt-transport-https (2.0.2ubuntu0.2) ...
+Progress: [ 40%] [#######...........] (remote-exec): Setting up apt-transport-https (2.0.2ubuntu0.2) ...
+aws_lb.k8s: Still creating... [1m0s elapsed]
+Progress: [ 80%] [##############....] (remote-exec): 
+null_resource.k8s_worker_bootstrap[0] (remote-exec): gpg: conflicting commands
+null_resource.k8s_controller_bootstrap[0] (remote-exec): curl is already the newest version (7.68.0-1ubuntu2.13).
+null_resource.k8s_controller_bootstrap[0] (remote-exec): curl set to manually installed.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): git is already the newest version (1:2.25.1-1ubuntu3.5).
+null_resource.k8s_controller_bootstrap[0] (remote-exec): git set to manually installed.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): The following NEW packages will be installed:
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   apt-transport-https
+null_resource.k8s_controller_bootstrap[0] (remote-exec): 0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Need to get 1704 B of archives.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): After this operation, 162 kB of additional disk space will be used.
+                                                         Selecting previously unselected package apt-transport-https.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 5%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 10%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 15%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 20%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 25%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 30%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 35%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 40%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 45%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 50%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 55%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 60%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 65%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 70%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 75%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 80%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 85%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 90%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 95%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 100%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 61772 files and directories currently installed.)
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Preparing to unpack .../apt-transport-https_2.0.9_all.deb ...
+Progress: [ 20%] [###...............] [0] (remote-exec): Unpacking apt-transport-https (2.0.9) ...
+Progress: [ 40%] [#######...........] [0] (remote-exec): Setting up apt-transport-https (2.0.9) ...
+Progress: [ 80%] [##############....] [0] (remote-exec): 
+
+null_resource.k8s_worker_bootstrap[1]: Still creating... [30s elapsed]
+null_resource.k8s_worker_bootstrap[0]: Still creating... [30s elapsed]
+null_resource.k8s_controller_bootstrap[0]: Still creating... [30s elapsed]
+null_resource.k8s_controller_bootstrap[0] (remote-exec): gpg: conflicting commands
+null_resource.k8s_worker_bootstrap[1] (remote-exec): curl is already the newest version (7.68.0-1ubuntu2.13).
+null_resource.k8s_worker_bootstrap[1] (remote-exec): curl set to manually installed.
+null_resource.k8s_worker_bootstrap[1] (remote-exec): git is already the newest version (1:2.25.1-1ubuntu3.5).
+null_resource.k8s_worker_bootstrap[1] (remote-exec): git set to manually installed.
+null_resource.k8s_worker_bootstrap[1] (remote-exec): The following NEW packages will be installed:
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   apt-transport-https
+null_resource.k8s_worker_bootstrap[1] (remote-exec): 0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Need to get 1704 B of archives.
+null_resource.k8s_worker_bootstrap[1] (remote-exec): After this operation, 162 kB of additional disk space will be used.
+                                                     Selecting previously unselected package apt-transport-https.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): 1 package can be upgraded. Run 'apt list --upgradable' to see it.
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 5%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 10%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 15%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 20%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 25%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 30%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 35%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 40%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 45%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 50%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 55%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 60%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 65%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 70%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 75%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 80%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 85%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 90%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 95%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 100%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 61772 files and directories currently installed.)
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Preparing to unpack .../apt-transport-https_2.0.9_all.deb ...
+Progress: [ 20%] [###...............] (remote-exec): Unpacking apt-transport-https (2.0.9) ...
+Progress: [ 40%] [#######...........] (remote-exec): Setting up apt-transport-https (2.0.9) ...
+Progress: [ 80%] [##############....] (remote-exec): 
+null_resource.k8s_worker_bootstrap[0] (remote-exec): The following additional packages will be installed:
+null_resource.k8s_worker_bootstrap[0] (remote-exec):   bridge-utils containerd
+null_resource.k8s_worker_bootstrap[0] (remote-exec):   dns-root-data dnsmasq-base libidn11
+null_resource.k8s_worker_bootstrap[0] (remote-exec):   pigz runc ubuntu-fan
+
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Suggested packages:
+null_resource.k8s_worker_bootstrap[0] (remote-exec):   ifupdown aufs-tools cgroupfs-mount
+null_resource.k8s_worker_bootstrap[0] (remote-exec):   | cgroup-lite debootstrap docker-doc
+null_resource.k8s_worker_bootstrap[0] (remote-exec):   rinse zfs-fuse | zfsutils
+null_resource.k8s_worker_bootstrap[0] (remote-exec): The following NEW packages will be installed:
+null_resource.k8s_worker_bootstrap[0] (remote-exec):   bridge-utils containerd
+null_resource.k8s_worker_bootstrap[0] (remote-exec):   dns-root-data dnsmasq-base docker.io
+null_resource.k8s_worker_bootstrap[0] (remote-exec):   libidn11 pigz runc ubuntu-fan
+null_resource.k8s_worker_bootstrap[0] (remote-exec): 
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Need to get 69.2 MB of archives.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): After this operation, 334 MB of additional disk space will be used.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): All packages are up to date.
+null_resource.k8s_worker_bootstrap[1] (remote-exec): gpg: conflicting commands
+null_resource.k8s_controller_bootstrap[0] (remote-exec): The following additional packages will be installed:
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   bridge-utils containerd
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   dns-root-data dnsmasq-base libidn11
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   pigz runc ubuntu-fan
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Suggested packages:
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   ifupdown aufs-tools cgroupfs-mount
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   | cgroup-lite debootstrap docker-doc
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   rinse zfs-fuse | zfsutils
+null_resource.k8s_controller_bootstrap[0] (remote-exec): The following NEW packages will be installed:
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   bridge-utils containerd
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   dns-root-data dnsmasq-base docker.io
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   libidn11 pigz runc ubuntu-fan
+null_resource.k8s_controller_bootstrap[0] (remote-exec): 0 upgraded, 9 newly installed, 0 to remove and 0 not upgraded.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Need to get 69.2 MB of archives.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): After this operation, 334 MB of additional disk space will be used.
+aws_lb.k8s: Still creating... [1m10s elapsed]
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Preconfiguring packages ...
+                                                     Selecting previously unselected package pigz.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ...
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 5%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 10%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 15%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 20%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 25%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 30%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 35%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 40%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 45%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 50%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 55%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 60%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 65%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 70%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 75%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 80%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 85%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 90%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 95%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 100%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 61776 files and directories currently installed.)
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Preparing to unpack .../0-pigz_2.4-1_amd64.deb ...
+Progress: [  3%] [..................] (remote-exec): Unpacking pigz (2.4-1) ...
+Progress: [  5%] [..................] (remote-exec): Selecting previously unselected package bridge-utils.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Preparing to unpack .../1-bridge-utils_1.6-2ubuntu1_amd64.deb ...
+Progress: [  8%] [#.................] (remote-exec): Unpacking bridge-utils (1.6-2ubuntu1) ...
+Progress: [ 11%] [#.................] (remote-exec): Selecting previously unselected package runc.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Preparing to unpack .../2-runc_1.1.0-0ubuntu1~20.04.1_amd64.deb ...
+Progress: [ 14%] [##................] (remote-exec): Unpacking runc (1.1.0-0ubuntu1~20.04.1) ...
+Progress: [ 16%] [##................] (remote-exec): Selecting previously unselected package containerd.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Preparing to unpack .../3-containerd_1.5.9-0ubuntu1~20.04.4_amd64.deb ...
+Progress: [ 19%] [###...............] (remote-exec): Unpacking containerd (1.5.9-0ubuntu1~20.04.4) ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Preconfiguring packages ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): All packages are up to date.
+                                                         Selecting previously unselected package pigz.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 5%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 10%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 15%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 20%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 25%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 30%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 35%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 40%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 45%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 50%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 55%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 60%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 65%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 70%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 75%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 80%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 85%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 90%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 95%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 100%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 61776 files and directories currently installed.)
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Preparing to unpack .../0-pigz_2.4-1_amd64.deb ...
+Progress: [  3%] [..................] [0] (remote-exec): Unpacking pigz (2.4-1) ...
+Progress: [  5%] [..................] [0] (remote-exec): Selecting previously unselected package bridge-utils.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Preparing to unpack .../1-bridge-utils_1.6-2ubuntu1_amd64.deb ...
+Progress: [  8%] [#.................] [0] (remote-exec): Unpacking bridge-utils (1.6-2ubuntu1) ...
+Progress: [ 11%] [#.................] [0] (remote-exec): Selecting previously unselected package runc.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Preparing to unpack .../2-runc_1.1.0-0ubuntu1~20.04.1_amd64.deb ...
+Progress: [ 14%] [##................] [0] (remote-exec): Unpacking runc (1.1.0-0ubuntu1~20.04.1) ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): The following additional packages will be installed:
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   bridge-utils containerd
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   dns-root-data dnsmasq-base libidn11
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   pigz runc ubuntu-fan
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Suggested packages:
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   ifupdown aufs-tools cgroupfs-mount
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   | cgroup-lite debootstrap docker-doc
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   rinse zfs-fuse | zfsutils
+null_resource.k8s_worker_bootstrap[1] (remote-exec): The following NEW packages will be installed:
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   bridge-utils containerd
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   dns-root-data dnsmasq-base docker.io
+null_resource.k8s_worker_bootstrap[1] (remote-exec):   libidn11 pigz runc ubuntu-fan
+null_resource.k8s_worker_bootstrap[1] (remote-exec): 0 upgraded, 9 newly installed, 0 to remove and 0 not upgraded.
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Need to get 69.2 MB of archives.
+null_resource.k8s_worker_bootstrap[1] (remote-exec): After this operation, 334 MB of additional disk space will be used.
+Progress: [ 16%] [##................] [0] (remote-exec): Selecting previously unselected package containerd.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Preparing to unpack .../3-containerd_1.5.9-0ubuntu1~20.04.4_amd64.deb ...
+Progress: [ 19%] [###...............] [0] (remote-exec): Unpacking containerd (1.5.9-0ubuntu1~20.04.4) ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Preconfiguring packages ...
+                                                     Selecting previously unselected package pigz.
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 5%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 10%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 15%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 20%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 25%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 30%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 35%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 40%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 45%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 50%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 55%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 60%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 65%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 70%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 75%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 80%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 85%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 90%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 95%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 100%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 61776 files and directories currently installed.)
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Preparing to unpack .../0-pigz_2.4-1_amd64.deb ...
+Progress: [  3%] [..................] (remote-exec): Unpacking pigz (2.4-1) ...
+Progress: [  5%] [..................] (remote-exec): Selecting previously unselected package bridge-utils.
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Preparing to unpack .../1-bridge-utils_1.6-2ubuntu1_amd64.deb ...
+Progress: [  8%] [#.................] (remote-exec): Unpacking bridge-utils (1.6-2ubuntu1) ...
+Progress: [ 11%] [#.................] (remote-exec): Selecting previously unselected package runc.
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Preparing to unpack .../2-runc_1.1.0-0ubuntu1~20.04.1_amd64.deb ...
+Progress: [ 14%] [##................] (remote-exec): Unpacking runc (1.1.0-0ubuntu1~20.04.1) ...
+Progress: [ 16%] [##................] (remote-exec): Selecting previously unselected package containerd.
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Preparing to unpack .../3-containerd_1.5.9-0ubuntu1~20.04.4_amd64.deb ...
+Progress: [ 19%] [###...............] (remote-exec): Unpacking containerd (1.5.9-0ubuntu1~20.04.4) ...
+null_resource.k8s_worker_bootstrap[0]: Still creating... [40s elapsed]
+null_resource.k8s_worker_bootstrap[1]: Still creating... [40s elapsed]
+null_resource.k8s_controller_bootstrap[0]: Still creating... [40s elapsed]
+Progress: [ 22%] [###...............] (remote-exec): Selecting previously unselected package dns-root-data.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Preparing to unpack .../4-dns-root-data_2019052802_all.deb ...
+Progress: [ 24%] [####..............] (remote-exec): Unpacking dns-root-data (2019052802) ...
+Progress: [ 27%] [####..............] (remote-exec): Selecting previously unselected package libidn11:amd64.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Preparing to unpack .../5-libidn11_1.33-2.2ubuntu2_amd64.deb ...
+Progress: [ 30%] [#####.............] (remote-exec): Unpacking libidn11:amd64 (1.33-2.2ubuntu2) ...
+Progress: [ 32%] [#####.............] (remote-exec): Selecting previously unselected package dnsmasq-base.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Preparing to unpack .../6-dnsmasq-base_2.80-1.1ubuntu1.5_amd64.deb ...
+Progress: [ 35%] [######............] (remote-exec): Unpacking dnsmasq-base (2.80-1.1ubuntu1.5) ...
+Progress: [ 38%] [######............] (remote-exec): Selecting previously unselected package docker.io.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Preparing to unpack .../7-docker.io_20.10.12-0ubuntu2~20.04.1_amd64.deb ...
+Progress: [ 41%] [#######...........] (remote-exec): Unpacking docker.io (20.10.12-0ubuntu2~20.04.1) ...
+Progress: [ 22%] [###...............] [0] (remote-exec): Selecting previously unselected package dns-root-data.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Preparing to unpack .../4-dns-root-data_2019052802_all.deb ...
+Progress: [ 24%] [####..............] [0] (remote-exec): Unpacking dns-root-data (2019052802) ...
+Progress: [ 27%] [####..............] [0] (remote-exec): Selecting previously unselected package libidn11:amd64.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Preparing to unpack .../5-libidn11_1.33-2.2ubuntu2_amd64.deb ...
+Progress: [ 30%] [#####.............] [0] (remote-exec): Unpacking libidn11:amd64 (1.33-2.2ubuntu2) ...
+Progress: [ 32%] [#####.............] [0] (remote-exec): Selecting previously unselected package dnsmasq-base.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Preparing to unpack .../6-dnsmasq-base_2.80-1.1ubuntu1.5_amd64.deb ...
+Progress: [ 35%] [######............] [0] (remote-exec): Unpacking dnsmasq-base (2.80-1.1ubuntu1.5) ...
+Progress: [ 38%] [######............] [0] (remote-exec): Selecting previously unselected package docker.io.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Preparing to unpack .../7-docker.io_20.10.12-0ubuntu2~20.04.1_amd64.deb ...
+Progress: [ 41%] [#######...........] [0] (remote-exec): Unpacking docker.io (20.10.12-0ubuntu2~20.04.1) ...
+Progress: [ 22%] [###...............] (remote-exec): Selecting previously unselected package dns-root-data.
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Preparing to unpack .../4-dns-root-data_2019052802_all.deb ...
+Progress: [ 24%] [####..............] (remote-exec): Unpacking dns-root-data (2019052802) ...
+Progress: [ 27%] [####..............] (remote-exec): Selecting previously unselected package libidn11:amd64.
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Preparing to unpack .../5-libidn11_1.33-2.2ubuntu2_amd64.deb ...
+Progress: [ 30%] [#####.............] (remote-exec): Unpacking libidn11:amd64 (1.33-2.2ubuntu2) ...
+Progress: [ 32%] [#####.............] (remote-exec): Selecting previously unselected package dnsmasq-base.
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Preparing to unpack .../6-dnsmasq-base_2.80-1.1ubuntu1.5_amd64.deb ...
+Progress: [ 35%] [######............] (remote-exec): Unpacking dnsmasq-base (2.80-1.1ubuntu1.5) ...
+Progress: [ 38%] [######............] (remote-exec): Selecting previously unselected package docker.io.
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Preparing to unpack .../7-docker.io_20.10.12-0ubuntu2~20.04.1_amd64.deb ...
+Progress: [ 41%] [#######...........] (remote-exec): Unpacking docker.io (20.10.12-0ubuntu2~20.04.1) ...
+aws_lb.k8s: Still creating... [1m20s elapsed]
+Progress: [ 43%] [#######...........] (remote-exec): Selecting previously unselected package ubuntu-fan.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Preparing to unpack .../8-ubuntu-fan_0.12.13ubuntu0.1_all.deb ...
+Progress: [ 46%] [########..........] (remote-exec): Unpacking ubuntu-fan (0.12.13ubuntu0.1) ...
+Progress: [ 49%] [########..........] (remote-exec): Setting up runc (1.1.0-0ubuntu1~20.04.1) ...
+Progress: [ 54%] [#########.........] (remote-exec): Setting up dns-root-data (2019052802) ...
+Progress: [ 59%] [##########........] (remote-exec): Setting up libidn11:amd64 (1.33-2.2ubuntu2) ...
+Progress: [ 65%] [###########.......] (remote-exec): Setting up bridge-utils (1.6-2ubuntu1) ...
+Progress: [ 68%] [############......] (remote-exec): 
+Progress: [ 70%] [############......] (remote-exec): Setting up pigz (2.4-1) ...
+Progress: [ 76%] [#############.....] (remote-exec): Setting up containerd (1.5.9-0ubuntu1~20.04.4) ...
+Progress: [ 78%] [##############....] (remote-exec): 
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Created symlink /etc/systemd/system/multi-user.target.wants/containerd.service → /lib/systemd/system/containerd.service.
+Progress: [ 43%] [#######...........] [0] (remote-exec): Selecting previously unselected package ubuntu-fan.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Preparing to unpack .../8-ubuntu-fan_0.12.13ubuntu0.1_all.deb ...
+Progress: [ 46%] [########..........] [0] (remote-exec): Unpacking ubuntu-fan (0.12.13ubuntu0.1) ...
+Progress: [ 49%] [########..........] [0] (remote-exec): Setting up runc (1.1.0-0ubuntu1~20.04.1) ...
+Progress: [ 54%] [#########.........] [0] (remote-exec): Setting up dns-root-data (2019052802) ...
+Progress: [ 59%] [##########........] [0] (remote-exec): Setting up libidn11:amd64 (1.33-2.2ubuntu2) ...
+Progress: [ 65%] [###########.......] [0] (remote-exec): Setting up bridge-utils (1.6-2ubuntu1) ...
+Progress: [ 81%] [##############....] (remote-exec): Setting up docker.io (20.10.12-0ubuntu2~20.04.1) ...
+Progress: [ 68%] [############......] [0] (remote-exec): 
+Progress: [ 84%] [###############...] (remote-exec): 
+Progress: [ 70%] [############......] [0] (remote-exec): Setting up pigz (2.4-1) ...
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Adding group `docker' (GID 119) ...
+Progress: [ 76%] [#############.....] [0] (remote-exec): Setting up containerd (1.5.9-0ubuntu1~20.04.4) ...
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Done.
+Progress: [ 78%] [##############....] [0] (remote-exec): 
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Created symlink /etc/systemd/system/multi-user.target.wants/containerd.service → /lib/systemd/system/containerd.service.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Created symlink /etc/systemd/system/multi-user.target.wants/docker.service → /lib/systemd/system/docker.service.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Created symlink /etc/systemd/system/sockets.target.wants/docker.socket → /lib/systemd/system/docker.socket.
+Progress: [ 43%] [#######...........] (remote-exec): Selecting previously unselected package ubuntu-fan.
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Preparing to unpack .../8-ubuntu-fan_0.12.13ubuntu0.1_all.deb ...
+Progress: [ 46%] [########..........] (remote-exec): Unpacking ubuntu-fan (0.12.13ubuntu0.1) ...
+Progress: [ 81%] [##############....] [0] (remote-exec): Setting up docker.io (20.10.12-0ubuntu2~20.04.1) ...
+Progress: [ 49%] [########..........] (remote-exec): Setting up runc (1.1.0-0ubuntu1~20.04.1) ...
+Progress: [ 54%] [#########.........] (remote-exec): Setting up dns-root-data (2019052802) ...
+Progress: [ 59%] [##########........] (remote-exec): Setting up libidn11:amd64 (1.33-2.2ubuntu2) ...
+Progress: [ 84%] [###############...] [0] (remote-exec): 
+Progress: [ 65%] [###########.......] (remote-exec): Setting up bridge-utils (1.6-2ubuntu1) ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Adding group `docker' (GID 119) ...
+Progress: [ 68%] [############......] (remote-exec): 
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Done.
+Progress: [ 70%] [############......] (remote-exec): Setting up pigz (2.4-1) ...
+Progress: [ 76%] [#############.....] (remote-exec): Setting up containerd (1.5.9-0ubuntu1~20.04.4) ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Created symlink /etc/systemd/system/multi-user.target.wants/docker.service → /lib/systemd/system/docker.service.
+Progress: [ 78%] [##############....] (remote-exec): 
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Created symlink /etc/systemd/system/multi-user.target.wants/containerd.service → /lib/systemd/system/containerd.service.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Created symlink /etc/systemd/system/sockets.target.wants/docker.socket → /lib/systemd/system/docker.socket.
+Progress: [ 81%] [##############....] (remote-exec): Setting up docker.io (20.10.12-0ubuntu2~20.04.1) ...
+Progress: [ 84%] [###############...] (remote-exec): 
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Adding group `docker' (GID 119) ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Done.
+Progress: [ 86%] [###############...] (remote-exec): Setting up dnsmasq-base (2.80-1.1ubuntu1.5) ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Created symlink /etc/systemd/system/multi-user.target.wants/docker.service → /lib/systemd/system/docker.service.
+Progress: [ 89%] [################..] (remote-exec): 
+Progress: [ 92%] [################..] (remote-exec): Setting up ubuntu-fan (0.12.13ubuntu0.1) ...
+null_resource.k8s_worker_bootstrap[1]: Still creating... [50s elapsed]
+null_resource.k8s_worker_bootstrap[0]: Still creating... [50s elapsed]
+Progress: [ 95%] [#################.] (remote-exec): 
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Created symlink /etc/systemd/system/multi-user.target.wants/ubuntu-fan.service → /lib/systemd/system/ubuntu-fan.service.
+null_resource.k8s_controller_bootstrap[0]: Still creating... [50s elapsed]
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Created symlink /etc/systemd/system/sockets.target.wants/docker.socket → /lib/systemd/system/docker.socket.
+Progress: [ 86%] [###############...] [0] (remote-exec): Setting up dnsmasq-base (2.80-1.1ubuntu1.5) ...
+Progress: [ 89%] [################..] [0] (remote-exec): 
+Progress: [ 92%] [################..] [0] (remote-exec): Setting up ubuntu-fan (0.12.13ubuntu0.1) ...
+Progress: [ 97%] [#################.] (remote-exec): Processing triggers for systemd (245.4-4ubuntu3.18) ...
+Progress: [ 95%] [#################.] [0] (remote-exec): 
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Created symlink /etc/systemd/system/multi-user.target.wants/ubuntu-fan.service → /lib/systemd/system/ubuntu-fan.service.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Processing triggers for man-db (2.9.1-1) ...
+Progress: [ 86%] [###############...] (remote-exec): Setting up dnsmasq-base (2.80-1.1ubuntu1.5) ...
+Progress: [ 97%] [#################.] [0] (remote-exec): Processing triggers for systemd (245.4-4ubuntu3.18) ...
+Progress: [ 89%] [################..] (remote-exec): 
+Progress: [ 92%] [################..] (remote-exec): Setting up ubuntu-fan (0.12.13ubuntu0.1) ...
+Progress: [ 95%] [#################.] (remote-exec): 
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Processing triggers for man-db (2.9.1-1) ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Created symlink /etc/systemd/system/multi-user.target.wants/ubuntu-fan.service → /lib/systemd/system/ubuntu-fan.service.
+Progress: [ 97%] [#################.] (remote-exec): Processing triggers for systemd (245.4-4ubuntu3.18) ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Processing triggers for man-db (2.9.1-1) ...
+aws_lb.k8s: Still creating... [1m30s elapsed]
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Processing triggers for dbus (1.12.16-2ubuntu2.2) ...
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Processing triggers for libc-bin (2.31-0ubuntu9.9) ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Processing triggers for dbus (1.12.16-2ubuntu2.2) ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Processing triggers for libc-bin (2.31-0ubuntu9.9) ...
+
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Proc
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Processing triggers for libc-bin (2.31-0ubuntu9.9) ...
+
+
+null_resource.k8s_worker_bootstrap[0]: Still creating... [1m0s elapsed]
+null_resource.k8s_worker_bootstrap[1]: Still creating... [1m0s elapsed]
+null_resource.k8s_controller_bootstrap[0]: Still creating... [1m0s elapsed]
+null_resource.k8s_worker_bootstrap[1] (remote-exec): [TASK 5] Add apt repo for kubernetes
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [TASK 5] Add apt repo for kubernetes
+null_resource.k8s_worker_bootstrap[1] (remote-exec): OK
+null_resource.k8s_controller_bootstrap[0] (remote-exec): OK
+null_resource.k8s_worker_bootstrap[0] (remote-exec): [TASK 5] Add apt repo for kubernetes
+null_resource.k8s_worker_bootstrap[0] (remote-exec): OK
+null_resource.k8s_worker_bootstrap[1] (remote-exec): All packages are up to date.
+null_resource.k8s_worker_bootstrap[1] (remote-exec): [TASK 6] Install Kubernetes components (kubeadm, kubelet and kubectl)
+null_resource.k8s_controller_bootstrap[0] (remote-exec): All packages are up to date.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [TASK 6] Install Kubernetes components (kubeadm, kubelet and kubectl)
+aws_lb.k8s: Still creating... [1m40s elapsed]
+null_resource.k8s_worker_bootstrap[0] (remote-exec): 1 package can be upgraded. Run 'apt list --upgradable' to see it.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): [TASK 6] Install Kubernetes components (kubeadm, kubelet and kubectl)
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Selecting previously unselected package conntrack.
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 5%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 10%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 15%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 20%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 25%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 30%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 35%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 40%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 45%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 50%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 55%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 60%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 65%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 70%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 75%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 80%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 85%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 90%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 95%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 100%
+null_resource.k8s_worker_bootstrap[1] (remote-exec): (Reading database ... 62132 files and directories currently installed.)
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Preparing to unpack .../0-conntrack_1%3a1.4.5-2_amd64.deb ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Unpacking conntrack (1:1.4.5-2) ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Selecting previously unselected package cri-tools.
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Preparing to unpack .../1-cri-tools_1.25.0-00_amd64.deb ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Unpacking cri-tools (1.25.0-00) ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Selecting previously unselected package conntrack.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 5%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 10%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 15%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 20%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 25%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 30%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 35%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 40%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 45%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 50%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 55%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 60%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 65%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 70%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 75%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 80%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 85%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 90%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 95%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 100%
+null_resource.k8s_controller_bootstrap[0] (remote-exec): (Reading database ... 62132 files and directories currently installed.)
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Preparing to unpack .../0-conntrack_1%3a1.4.5-2_amd64.deb ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Unpacking conntrack (1:1.4.5-2) ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Selecting previously unselected package cri-tools.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Preparing to unpack .../1-cri-tools_1.25.0-00_amd64.deb ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Unpacking cri-tools (1.25.0-00) ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Selecting previously unselected package ebtables.
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Preparing to unpack .../2-ebtables_2.0.11-3build1_amd64.deb ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Unpacking ebtables (2.0.11-3build1) ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Selecting previously unselected package kubernetes-cni.
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Preparing to unpack .../3-kubernetes-cni_1.1.1-00_amd64.deb ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Unpacking kubernetes-cni (1.1.1-00) ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Selecting previously unselected package ebtables.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Preparing to unpack .../2-ebtables_2.0.11-3build1_amd64.deb ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Unpacking ebtables (2.0.11-3build1) ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Selecting previously unselected package kubernetes-cni.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Preparing to unpack .../3-kubernetes-cni_1.1.1-00_amd64.deb ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Unpacking kubernetes-cni (1.1.1-00) ...
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Selecting previously unselected package conntrack.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ...
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 5%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 10%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 15%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 20%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 25%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 30%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 35%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 40%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 45%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 50%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 55%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 60%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 65%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 70%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 75%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 80%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 85%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 90%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 95%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 100%
+null_resource.k8s_worker_bootstrap[0] (remote-exec): (Reading database ... 62132 files and directories currently installed.)
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Preparing to unpack .../0-conntrack_1%3a1.4.5-2_amd64.deb ...
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Unpacking conntrack (1:1.4.5-2) ...
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Selecting previously unselected package cri-tools.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Preparing to unpack .../1-cri-tools_1.25.0-00_amd64.deb ...
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Unpacking cri-tools (1.25.0-00) ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Selecting previously unselected package socat.
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Preparing to unpack .../4-socat_1.7.3.3-2_amd64.deb ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Unpacking socat (1.7.3.3-2) ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Selecting previously unselected package kubelet.
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Preparing to unpack .../5-kubelet_1.20.12-00_amd64.deb ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Unpacking kubelet (1.20.12-00) ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Selecting previously unselected package socat.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Preparing to unpack .../4-socat_1.7.3.3-2_amd64.deb ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Unpacking socat (1.7.3.3-2) ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Selecting previously unselected package kubelet.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Preparing to unpack .../5-kubelet_1.20.12-00_amd64.deb ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Unpacking kubelet (1.20.12-00) ...
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Selecting previously unselected package ebtables.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Preparing to unpack .../2-ebtables_2.0.11-3build1_amd64.deb ...
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Unpacking ebtables (2.0.11-3build1) ...
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Selecting previously unselected package kubernetes-cni.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Preparing to unpack .../3-kubernetes-cni_1.1.1-00_amd64.deb ...
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Unpacking kubernetes-cni (1.1.1-00) ...
+null_resource.k8s_worker_bootstrap[1]: Still creating... [1m10s elapsed]
+null_resource.k8s_worker_bootstrap[0]: Still creating... [1m10s elapsed]
+null_resource.k8s_controller_bootstrap[0]: Still creating... [1m10s elapsed]
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Selecting previously unselected package kubectl.
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Preparing to unpack .../6-kubectl_1.20.12-00_amd64.deb ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Unpacking kubectl (1.20.12-00) ...
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Selecting previously unselected package socat.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Preparing to unpack .../4-socat_1.7.3.3-2_amd64.deb ...
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Unpacking socat (1.7.3.3-2) ...
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Selecting previously unselected package kubelet.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Preparing to unpack .../5-kubelet_1.20.12-00_amd64.deb ...
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Unpacking kubelet (1.20.12-00) ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Selecting previously unselected package kubectl.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Preparing to unpack .../6-kubectl_1.20.12-00_amd64.deb ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Unpacking kubectl (1.20.12-00) ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Selecting previously unselected package kubeadm.
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Preparing to unpack .../7-kubeadm_1.20.12-00_amd64.deb ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Unpacking kubeadm (1.20.12-00) ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Selecting previously unselected package kubeadm.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Preparing to unpack .../7-kubeadm_1.20.12-00_amd64.deb ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Unpacking kubeadm (1.20.12-00) ...
+aws_lb.k8s: Still creating... [1m50s elapsed]
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Setting up conntrack (1:1.4.5-2) ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Setting up kubectl (1.20.12-00) ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Setting up ebtables (2.0.11-3build1) ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Setting up socat (1.7.3.3-2) ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Setting up cri-tools (1.25.0-00) ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Setting up kubernetes-cni (1.1.1-00) ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Setting up kubelet (1.20.12-00) ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Created symlink /etc/systemd/system/multi-user.target.wants/kubelet.service → /lib/systemd/system/kubelet.service.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Selecting previously unselected package kubectl.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Preparing to unpack .../6-kubectl_1.20.12-00_amd64.deb ...
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Unpacking kubectl (1.20.12-00) ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Setting up conntrack (1:1.4.5-2) ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Setting up kubectl (1.20.12-00) ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Setting up ebtables (2.0.11-3build1) ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Setting up kubeadm (1.20.12-00) ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Setting up socat (1.7.3.3-2) ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Setting up cri-tools (1.25.0-00) ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Setting up kubernetes-cni (1.1.1-00) ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Setting up kubelet (1.20.12-00) ...
+null_resource.k8s_worker_bootstrap[1] (remote-exec): Processing triggers for man-db (2.9.1-1) ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Created symlink /etc/systemd/system/multi-user.target.wants/kubelet.service → /lib/systemd/system/kubelet.service.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Selecting previously unselected package kubeadm.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Preparing to unpack .../7-kubeadm_1.20.12-00_amd64.deb ...
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Unpacking kubeadm (1.20.12-00) ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Setting up kubeadm (1.20.12-00) ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Processing triggers for man-db (2.9.1-1) ...
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Setting up conntrack (1:1.4.5-2) ...
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Setting up kubectl (1.20.12-00) ...
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Setting up ebtables (2.0.11-3build1) ...
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Setting up socat (1.7.3.3-2) ...
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Setting up cri-tools (1.25.0-00) ...
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Setting up kubernetes-cni (1.1.1-00) ...
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Setting up kubelet (1.20.12-00) ...
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Created symlink /etc/systemd/system/multi-user.target.wants/kubelet.service → /lib/systemd/system/kubelet.service.
+null_resource.k8s_worker_bootstrap[1] (remote-exec): kubeadm set on hold.
+null_resource.k8s_worker_bootstrap[1] (remote-exec): kubelet set on hold.
+null_resource.k8s_worker_bootstrap[1] (remote-exec): kubectl set on hold.
+null_resource.k8s_worker_bootstrap[1] (remote-exec): [TASK 7] Install Kubectl bash completion
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Setting up kubeadm (1.20.12-00) ...
+null_resource.k8s_worker_bootstrap[0]: Still creating... [1m20s elapsed]
+null_resource.k8s_worker_bootstrap[1]: Still creating... [1m20s elapsed]
+null_resource.k8s_controller_bootstrap[0]: Still creating... [1m20s elapsed]
+null_resource.k8s_worker_bootstrap[1] (remote-exec): bash-completion is already the newest version (1:2.10-1ubuntu1).
+null_resource.k8s_worker_bootstrap[1] (remote-exec): bash-completion set to manually installed.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): Processing triggers for man-db (2.9.1-1) ...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): kubeadm set on hold.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): kubelet set on hold.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): kubectl set on hold.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [TASK 7] Install Kubectl bash completion
+null_resource.k8s_worker_bootstrap[1] (remote-exec): 0 upgraded, 0 newly installed, 0 to remove and 3 not upgraded.
+null_resource.k8s_worker_bootstrap[1]: Creation complete after 1m21s [id=3933419764289053427]
+null_resource.k8s_controller_bootstrap[0] (remote-exec): bash-completion is already the newest version (1:2.10-1ubuntu1).
+null_resource.k8s_controller_bootstrap[0] (remote-exec): bash-completion set to manually installed.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): 0 upgraded, 0 newly installed, 0 to remove and 3 not upgraded.
+null_resource.k8s_controller_bootstrap[0]: Provisioning with 'remote-exec'...
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Connecting to remote host via SSH...
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   Host: 54.208.59.38
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   User: ubuntu
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   Password: false
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   Private key: true
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   Certificate: false
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   SSH Agent: true
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   Checking Host Key: false
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   Target Platform: unix
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Connected!
+null_resource.k8s_worker_bootstrap[0] (remote-exec): kubeadm set on hold.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): kubelet set on hold.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): kubectl set on hold.
+null_resource.k8s_worker_bootstrap[0] (remote-exec): [TASK 7] Install Kubectl bash completion
+null_resource.k8s_worker_bootstrap[0] (remote-exec): bash-completion is already the newest version (1:2.10-1ubuntu1).
+null_resource.k8s_worker_bootstrap[0] (remote-exec): bash-completion set to manually installed.
+aws_lb.k8s: Still creating... [2m0s elapsed]
+null_resource.k8s_worker_bootstrap[0] (remote-exec): 0 upgraded, 0 newly installed, 0 to remove and 4 not upgraded.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [TASK 1] Start Kubernetes cluster
+null_resource.k8s_worker_bootstrap[0]: Creation complete after 1m25s [id=1920803877379455661]
+null_resource.k8s_controller_bootstrap[0] (remote-exec): I1015 22:15:16.892734    5316 version.go:254] remote version is much newer: v1.25.3; falling back to: stable-1.20
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [init] Using Kubernetes version: v1.20.15
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [preflight] Running pre-flight checks
+null_resource.k8s_controller_bootstrap[0] (remote-exec): 	[WARNING NumCPU]: the number of available CPUs 1 is less than the required 2
+null_resource.k8s_controller_bootstrap[0] (remote-exec): 	[WARNING Mem]: the system RAM (966 MB) is less than the minimum 1700 MB
+null_resource.k8s_controller_bootstrap[0] (remote-exec): 	[WARNING IsDockerSystemdCheck]: detected "cgroupfs" as the Docker cgroup driver. The recommended driver is "systemd". Please follow the guide at https://kubernetes.io/docs/setup/cri/
+null_resource.k8s_controller_bootstrap[0] (remote-exec): 	[WARNING SystemVerification]: this Docker version is not on the list of validated versions: 20.10.12. Latest validated version: 19.03
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [preflight] Pulling images required for setting up a Kubernetes cluster
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [preflight] This might take a minute or two, depending on the speed of your internet connection
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [preflight] You can also perform this action in beforehand using 'kubeadm config images pull'
+null_resource.k8s_controller_bootstrap[0]: Still creating... [1m30s elapsed]
+aws_lb.k8s: Still creating... [2m10s elapsed]
+aws_lb.k8s: Creation complete after 2m12s [id=arn:aws:elasticloadbalancing:us-east-1:581573371430:loadbalancer/net/kubernetes/fe0f447f286ada0a]
+aws_lb_listener.k8s: Creating...
+aws_lb_listener.k8s: Creation complete after 1s [id=arn:aws:elasticloadbalancing:us-east-1:581573371430:listener/net/kubernetes/fe0f447f286ada0a/b2c856c571fffec4]
+null_resource.k8s_controller_bootstrap[0]: Still creating... [1m40s elapsed]
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [certs] Using certificateDir folder "/etc/kubernetes/pki"
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [certs] Generating "ca" certificate and key
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [certs] Generating "apiserver" certificate and key
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [certs] apiserver serving cert is signed for DNS names [ip-10-240-0-10 kubernetes kubernetes.default kubernetes.default.svc kubernetes.default.svc.cluster.local] and IPs [10.96.0.1 10.240.0.10]
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [certs] Generating "apiserver-kubelet-client" certificate and key
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [certs] Generating "front-proxy-ca" certificate and key
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [certs] Generating "front-proxy-client" certificate and key
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [certs] Generating "etcd/ca" certificate and key
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [certs] Generating "etcd/server" certificate and key
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [certs] etcd/server serving cert is signed for DNS names [ip-10-240-0-10 localhost] and IPs [10.240.0.10 127.0.0.1 ::1]
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [certs] Generating "etcd/peer" certificate and key
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [certs] etcd/peer serving cert is signed for DNS names [ip-10-240-0-10 localhost] and IPs [10.240.0.10 127.0.0.1 ::1]
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [certs] Generating "etcd/healthcheck-client" certificate and key
+null_resource.k8s_controller_bootstrap[0]: Still creating... [1m50s elapsed]
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [certs] Generating "apiserver-etcd-client" certificate and key
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [certs] Generating "sa" key and public key
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [kubeconfig] Using kubeconfig folder "/etc/kubernetes"
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [kubeconfig] Writing "admin.conf" kubeconfig file
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [kubeconfig] Writing "kubelet.conf" kubeconfig file
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [kubeconfig] Writing "controller-manager.conf" kubeconfig file
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [kubeconfig] Writing "scheduler.conf" kubeconfig file
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [kubelet-start] Writing kubelet environment file with flags to file "/var/lib/kubelet/kubeadm-flags.env"
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [kubelet-start] Writing kubelet configuration to file "/var/lib/kubelet/config.yaml"
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [kubelet-start] Starting the kubelet
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [control-plane] Using manifest folder "/etc/kubernetes/manifests"
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [control-plane] Creating static Pod manifest for "kube-apiserver"
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [control-plane] Creating static Pod manifest for "kube-controller-manager"
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [control-plane] Creating static Pod manifest for "kube-scheduler"
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [etcd] Creating static Pod manifest for local etcd in "/etc/kubernetes/manifests"
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [wait-control-plane] Waiting for the kubelet to boot up the control plane as static Pods from directory "/etc/kubernetes/manifests". This can take up to 4m0s
+null_resource.k8s_controller_bootstrap[0]: Still creating... [2m0s elapsed]
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [apiclient] All control plane components are healthy after 13.502737 seconds
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [upload-config] Storing the configuration used in ConfigMap "kubeadm-config" in the "kube-system" Namespace
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [kubelet] Creating a ConfigMap "kubelet-config-1.20" in namespace kube-system with the configuration for the kubelets in the cluster
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [upload-certs] Skipping phase. Please see --upload-certs
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [mark-control-plane] Marking the node ip-10-240-0-10 as control-plane by adding the labels "node-role.kubernetes.io/master=''" and "node-role.kubernetes.io/control-plane='' (deprecated)"
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [mark-control-plane] Marking the node ip-10-240-0-10 as control-plane by adding the taints [node-role.kubernetes.io/master:NoSchedule]
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [bootstrap-token] Using token: 49gvvk.6dkj4084ypm5bvok
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [bootstrap-token] Configuring bootstrap tokens, cluster-info ConfigMap, RBAC Roles
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [bootstrap-token] configured RBAC rules to allow Node Bootstrap tokens to get nodes
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [bootstrap-token] configured RBAC rules to allow Node Bootstrap tokens to post CSRs in order for nodes to get long term certificate credentials
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [bootstrap-token] configured RBAC rules to allow the csrapprover controller automatically approve CSRs from a Node Bootstrap Token
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [bootstrap-token] configured RBAC rules to allow certificate rotation for all node client certificates in the cluster
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [bootstrap-token] Creating the "cluster-info" ConfigMap in the "kube-public" namespace
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [kubelet-finalize] Updating "/etc/kubernetes/kubelet.conf" to point to a rotatable kubelet client certificate and key
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [addons] Applied essential addon: CoreDNS
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [addons] Applied essential addon: kube-proxy
+
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Your Kubernetes control-plane has initialized successfully!
+
+null_resource.k8s_controller_bootstrap[0] (remote-exec): To start using your cluster, you need to run the following as a regular user:
+
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   mkdir -p $HOME/.kube
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Alternatively, if you are the root user, you can run:
+
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   export KUBECONFIG=/etc/kubernetes/admin.conf
+
+null_resource.k8s_controller_bootstrap[0] (remote-exec): You should now deploy a pod network to the cluster.
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
+null_resource.k8s_controller_bootstrap[0] (remote-exec):   https://kubernetes.io/docs/concepts/cluster-administration/addons/
+
+null_resource.k8s_controller_bootstrap[0] (remote-exec): Then you can join any number of worker nodes by running the following on each as root:
+
+null_resource.k8s_controller_bootstrap[0] (remote-exec): kubeadm join 10.240.0.10:6443 --token 49gvvk.6dkj4084ypm5bvok \
+null_resource.k8s_controller_bootstrap[0] (remote-exec):     --discovery-token-ca-cert-hash sha256:3fc690abb5cdd1cf909fc701394f2e3d69ee31e128a14f85200c9d41734b09bb
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [TASK 2] Setup kube config
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [TASK 3] Apply network driver
+null_resource.k8s_controller_bootstrap[0]: Still creating... [2m10s elapsed]
+null_resource.k8s_controller_bootstrap[0] (remote-exec): namespace/kube-flannel created
+null_resource.k8s_controller_bootstrap[0] (remote-exec): clusterrole.rbac.authorization.k8s.io/flannel created
+null_resource.k8s_controller_bootstrap[0] (remote-exec): clusterrolebinding.rbac.authorization.k8s.io/flannel created
+null_resource.k8s_controller_bootstrap[0] (remote-exec): serviceaccount/flannel created
+null_resource.k8s_controller_bootstrap[0] (remote-exec): configmap/kube-flannel-cfg created
+null_resource.k8s_controller_bootstrap[0] (remote-exec): daemonset.apps/kube-flannel-ds created
+null_resource.k8s_controller_bootstrap[0] (remote-exec): [TASK 4] Apply metrics server components
+null_resource.k8s_controller_bootstrap[0] (remote-exec): serviceaccount/metrics-server created
+null_resource.k8s_controller_bootstrap[0] (remote-exec): clusterrole.rbac.authorization.k8s.io/system:aggregated-metrics-reader created
+null_resource.k8s_controller_bootstrap[0] (remote-exec): clusterrole.rbac.authorization.k8s.io/system:metrics-server created
+null_resource.k8s_controller_bootstrap[0] (remote-exec): rolebinding.rbac.authorization.k8s.io/metrics-server-auth-reader created
+null_resource.k8s_controller_bootstrap[0] (remote-exec): clusterrolebinding.rbac.authorization.k8s.io/metrics-server:system:auth-delegator created
+null_resource.k8s_controller_bootstrap[0] (remote-exec): clusterrolebinding.rbac.authorization.k8s.io/system:metrics-server created
+null_resource.k8s_controller_bootstrap[0] (remote-exec): service/metrics-server created
+null_resource.k8s_controller_bootstrap[0] (remote-exec): deployment.apps/metrics-server created
+null_resource.k8s_controller_bootstrap[0] (remote-exec): apiservice.apiregistration.k8s.io/v1beta1.metrics.k8s.io created
+null_resource.k8s_controller_bootstrap[0]: Creation complete after 2m12s [id=630378690807314828]
+
+Apply complete! Resources: 19 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+controller_instance_ips = [
+  "54.208.59.38",
+]
+worker_instance_ips = [
+  "3.91.204.162",
+  "54.86.86.74",
+]
+

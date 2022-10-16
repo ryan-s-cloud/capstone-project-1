@@ -1,0 +1,15 @@
+ubuntu@ip-10-240-0-10:~/k8/capstone-project-1/infrastructure/k8s/etcd-snapshot$ sh ./script-to-backup-etcd-snapshot.sh 
++ WORK_DIR=/tmp/etcd
++ [ -d /tmp/etcd ]
++ cd /tmp/etcd
++ ETCD_PKI_DIR=/etc/kubernetes/pki/etcd
++ sudo ETCDCTL_API=3 etcdctl snapshot save snapshot.db --cacert /etc/kubernetes/pki/etcd/ca.crt --cert /etc/kubernetes/pki/etcd/server.crt --key /etc/kubernetes/pki/etcd/server.key
+{"level":"info","ts":"2022-10-16T01:05:21.519Z","caller":"snapshot/v3_snapshot.go:65","msg":"created temporary db file","path":"snapshot.db.part"}
+{"level":"info","ts":"2022-10-16T01:05:21.556Z","logger":"client","caller":"v3/maintenance.go:211","msg":"opened snapshot stream; downloading"}
+{"level":"info","ts":"2022-10-16T01:05:21.556Z","caller":"snapshot/v3_snapshot.go:73","msg":"fetching snapshot","endpoint":"127.0.0.1:2379"}
+{"level":"info","ts":"2022-10-16T01:05:21.681Z","logger":"client","caller":"v3/maintenance.go:219","msg":"completed snapshot read; closing"}
+{"level":"info","ts":"2022-10-16T01:05:21.708Z","caller":"snapshot/v3_snapshot.go:88","msg":"fetched snapshot","endpoint":"127.0.0.1:2379","size":"3.1 MB","took":"now"}
+{"level":"info","ts":"2022-10-16T01:05:21.710Z","caller":"snapshot/v3_snapshot.go:97","msg":"saved","path":"snapshot.db"}
+Snapshot saved at snapshot.db
+ubuntu@ip-10-240-0-10:~/k8/capstone-project-1/infrastructure/k8s/etcd-snapshot$ 
+

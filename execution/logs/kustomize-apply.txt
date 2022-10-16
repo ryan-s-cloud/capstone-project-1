@@ -1,0 +1,14 @@
+ubuntu@ip-10-240-0-10:~/k8/capstone-project-1/infrastructure$ kubectl apply -k k8s/kustomize/dev
+namespace/capstone-project1 created
+configmap/postgres-config-6h652f2b2g created
+service/vehicle-quotes-db-service created
+service/vehicle-quotes-web-service created
+deployment.apps/vehicle-quotes-db created
+deployment.apps/vehicle-quotes-web created
+horizontalpodautoscaler.autoscaling/vehicle-quotes-db-memory-scaler created
+networkpolicy.networking.k8s.io/access-db-from-web created
+persistentvolume/vehicle-quotes-postgres-data-persisent-volume created
+persistentvolume/vehicle-quotes-source-code-persisent-volume created
+persistentvolumeclaim/vehicle-quotes-postgres-data-persisent-volume-claim created
+persistentvolumeclaim/vehicle-quotes-source-code-persisent-volume-claim created
+ubuntu@ip-10-240-0-10:~/k8/capstone-project-1/infrastructure$ 

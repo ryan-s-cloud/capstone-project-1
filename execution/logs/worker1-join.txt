@@ -1,0 +1,19 @@
+ubuntu@ip-10-240-0-20:~$ sudo kubeadm join 10.240.0.10:6443 --token 49gvvk.6dkj4084ypm5bvok \
+> --discovery-token-ca-cert-hash sha256:3fc690abb5cdd1cf909fc701394f2e3d69ee31e128a14f85200c9d41734b09bb
+[preflight] Running pre-flight checks
+	[WARNING IsDockerSystemdCheck]: detected "cgroupfs" as the Docker cgroup driver. The recommended driver is "systemd". Please follow the guide at https://kubernetes.io/docs/setup/cri/
+	[WARNING SystemVerification]: this Docker version is not on the list of validated versions: 20.10.12. Latest validated version: 19.03
+[preflight] Reading configuration from the cluster...
+[preflight] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -o yaml'
+[kubelet-start] Writing kubelet configuration to file "/var/lib/kubelet/config.yaml"
+[kubelet-start] Writing kubelet environment file with flags to file "/var/lib/kubelet/kubeadm-flags.env"
+[kubelet-start] Starting the kubelet
+[kubelet-start] Waiting for the kubelet to perform the TLS Bootstrap...
+
+This node has joined the cluster:
+* Certificate signing request was sent to apiserver and a response was received.
+* The Kubelet was informed of the new secure connection details.
+
+Run 'kubectl get nodes' on the control-plane to see this node join the cluster.
+
+ubuntu@ip-10-240-0-20:~$ 

@@ -1,0 +1,51 @@
+ubuntu@ip-10-240-0-10:~/k8/capstone-project-1/infrastructure/k8s/rbac$ sh -x create-certificate.sh
++ openssl genrsa -out capstone-project1-pod-user.key 2048
+Generating RSA private key, 2048 bit long modulus (2 primes)
+............................................................................................+++++
+.........+++++
+e is 65537 (0x010001)
++ openssl req -new -key capstone-project1-pod-user.key -out capstone-project1-pod-user.csr -subj /CN=capstone-project1-pod-user/O=capstone-project1
++ cat capstone-project1-pod-user.csr
++ tr -d \n
++ base64
++ CSR=LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0KTUlJQ2hqQ0NBVzRDQVFBd1FURWpNQ0VHQTFVRUF3d2FZMkZ3YzNSdmJtVXRjSEp2YW1WamRERXRjRzlrTFhWegpaWEl4R2pBWUJnTlZCQW9NRVdOaGNITjBiMjVsTFhCeWIycGxZM1F4TUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGCkFBT0NBUThBTUlJQkNnS0NBUUVBdUgwOWhRSmNIK1hDUWF1S0QzYkhnTUtnNUJGSitGUHRoV1dtSzRjdk5kR20Kd2NhRkkzQ1VUWGNuRzRtSWJadmdzSDJGWGVSRitNWEZZYkRzcUwrTmllYW9CQkRUUjd4MmVybmszenJKek9Scgp4Vkt2VDlnK1Q4SCsyTHVOMHZFRXRFcFRoSmxBcTVLS1YvMDhhQy9TcU1wOUxvYlI5cExOL2NRajRyYnlGWWJPClhHZHluUmxZMXRDTVlZUnFqVi9vNzhrUE96czg3bmg5Zk9NcGpFS1c0TEcrb2toK2s2NjFlY2ZkYTZzSjUxckUKVXNMc1pFZTRHQTNGRXFWc2NZaXRiUHB5eFcyWDdFY0YyTDR4SlFMVk5DSDhndlhqdGJ4T1JRN2dNTUtuN1phNwo4dUsybEFiYU1wTlpIOFA4ekJCaTN2N3huZ0hldFZXYnYvZCs1cGZHNXdJREFRQUJvQUF3RFFZSktvWklodmNOCkFRRUxCUUFEZ2dFQkFCSWRISzBZb0VzVVlGclR5N2ppU2FUK0VIY0dRSEk4MEpGaU4zbUIzZEw0VnFhWm9rRUgKMTd4Um1NRFp2Zkw4MXQ5Q0d5WG82MEVuTTBtR1UzRUZGbUIzTWJVMzJNSlBLYTNRKzg3cE1mSlp0Q0F6Q2tqdApBNTVHT2RzNUZGbXpraGwwZTNyY0ZOWEpES3pscDc0T3dZT2ZEeFJVNmNDazFBd0pWSEU1MVhFMGRacm9JWGtFClpCM0VrREcxdTBYUG8zUVIzSWdpWmh3VlhUczdLc2x4VjNhUFZSeTBXRkcxVkVhZ1lmNFl1d2NQYjNzeVBDa3gKYXFRRjlKVFladXJnNnMyUng0Z1FEbndycUZwbXUrOVU0Yk5Tdnp4VW5uM3RBU0J5Q0IwMFdvZDNkRHpQNEEyRQpMYkJLRUFHQWxIemUwOFIwMGhoaXpxUE5pMkFTU2FPQkVzZz0KLS0tLS1FTkQgQ0VSVElGSUNBVEUgUkVRVUVTVC0tLS0tCg==
++ sed -i s/__CSR___/LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0KTUlJQ2hqQ0NBVzRDQVFBd1FURWpNQ0VHQTFVRUF3d2FZMkZ3YzNSdmJtVXRjSEp2YW1WamRERXRjRzlrTFhWegpaWEl4R2pBWUJnTlZCQW9NRVdOaGNITjBiMjVsTFhCeWIycGxZM1F4TUlJQklqQU5CZ2txaGtpRzl3MEJBUUVGCkFBT0NBUThBTUlJQkNnS0NBUUVBdUgwOWhRSmNIK1hDUWF1S0QzYkhnTUtnNUJGSitGUHRoV1dtSzRjdk5kR20Kd2NhRkkzQ1VUWGNuRzRtSWJadmdzSDJGWGVSRitNWEZZYkRzcUwrTmllYW9CQkRUUjd4MmVybmszenJKek9Scgp4Vkt2VDlnK1Q4SCsyTHVOMHZFRXRFcFRoSmxBcTVLS1YvMDhhQy9TcU1wOUxvYlI5cExOL2NRajRyYnlGWWJPClhHZHluUmxZMXRDTVlZUnFqVi9vNzhrUE96czg3bmg5Zk9NcGpFS1c0TEcrb2toK2s2NjFlY2ZkYTZzSjUxckUKVXNMc1pFZTRHQTNGRXFWc2NZaXRiUHB5eFcyWDdFY0YyTDR4SlFMVk5DSDhndlhqdGJ4T1JRN2dNTUtuN1phNwo4dUsybEFiYU1wTlpIOFA4ekJCaTN2N3huZ0hldFZXYnYvZCs1cGZHNXdJREFRQUJvQUF3RFFZSktvWklodmNOCkFRRUxCUUFEZ2dFQkFCSWRISzBZb0VzVVlGclR5N2ppU2FUK0VIY0dRSEk4MEpGaU4zbUIzZEw0VnFhWm9rRUgKMTd4Um1NRFp2Zkw4MXQ5Q0d5WG82MEVuTTBtR1UzRUZGbUIzTWJVMzJNSlBLYTNRKzg3cE1mSlp0Q0F6Q2tqdApBNTVHT2RzNUZGbXpraGwwZTNyY0ZOWEpES3pscDc0T3dZT2ZEeFJVNmNDazFBd0pWSEU1MVhFMGRacm9JWGtFClpCM0VrREcxdTBYUG8zUVIzSWdpWmh3VlhUczdLc2x4VjNhUFZSeTBXRkcxVkVhZ1lmNFl1d2NQYjNzeVBDa3gKYXFRRjlKVFladXJnNnMyUng0Z1FEbndycUZwbXUrOVU0Yk5Tdnp4VW5uM3RBU0J5Q0IwMFdvZDNkRHpQNEEyRQpMYkJLRUFHQWxIemUwOFIwMGhoaXpxUE5pMkFTU2FPQkVzZz0KLS0tLS1FTkQgQ0VSVElGSUNBVEUgUkVRVUVTVC0tLS0tCg==/g capstone-project1-pod-user-csr.yaml
+
+_____________________________________________________________________________________________________________________
+ubuntu@ip-10-240-0-10:~/k8/capstone-project-1/infrastructure/k8s/rbac$ sh -x ./apply.sh 
++ kubectl apply -f capstone-project1-pod-user-csr.yaml
+certificatesigningrequest.certificates.k8s.io/capstone-project1-pod-user created
++ kubectl get csr
+NAME                         AGE   SIGNERNAME                      REQUESTOR          CONDITION
+capstone-project1-pod-user   0s    kubernetes.io/kubelet-serving   kubernetes-admin   Pending
++ kubectl certificate approve capstone-project1-pod-user
+certificatesigningrequest.certificates.k8s.io/capstone-project1-pod-user approved
++ echo waiting ....
+waiting ....
++ sleep 20
++ kubectl apply -f capstone-project1-role.yaml
+role.rbac.authorization.k8s.io/capstone-project1-pod-role created
++ kubectl get roles -n capstone-project1
+NAME                         CREATED AT
+capstone-project1-pod-role   2022-10-16T00:14:05Z
++ kubectl apply -f capstone-project1-roleBinding.yaml
+rolebinding.rbac.authorization.k8s.io/capstone-project1-pod-role-rolebinding created
++ kubectl get rolebindings -n capstone-project1
+NAME                                     ROLE                              AGE
+capstone-project1-pod-role-rolebinding   Role/capstone-project1-pod-role   1s
++ kubectl describe rolebinding capstone-project1-pod-role-rolebinding -n capstone-project1
+Name:         capstone-project1-pod-role-rolebinding
+Labels:       <none>
+Annotations:  <none>
+Role:
+  Kind:  Role
+  Name:  capstone-project1-pod-role
+Subjects:
+  Kind  Name                        Namespace
+  ----  ----                        ---------
+  User  capstone-project1-pod-user  
++ kubectl auth can-i list pods --as capstone-project1-pod-user -n capstone-project1
+yes
++ kubectl auth can-i create pods --as capstone-project1-pod-user -n capstone-project1
+yes
+ubuntu@ip-10-240-0-10:~/k8/capstone-project-1/infrastructure/k8s/rbac$ 

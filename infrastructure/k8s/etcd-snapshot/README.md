@@ -30,7 +30,7 @@ cd ${WORK_DIR}
 
 ETCD_PKI_DIR=/etc/kubernetes/pki/etcd
 
-sudo ETCDCTL_API=3 \\
+sudo ETCDCTL_API=3
 
 etcdctl snapshot save snapshot.db \
    --cacert \${ETCD_PKI_DIR}/ca.crt \
@@ -62,17 +62,17 @@ curl -s https://api.github.com/repos/etcd-io/etcd/releases/latest |\
 
 # Extract the archive
 
-tar xvf \*.tar.gz
+tar xvf *.tar.gz
 
 # Install in /usr/local/bin
 
-cd etcd-\*/
+cd etcd-*/
 
-sudo mv etcd\* /usr/local/bin/
+sudo mv etcd* /usr/local/bin/
 
 # Cleanup
 
 cd ..
 
-rm -rf \*.tar.gz etcd-\*/
+rm -rf *.tar.gz etcd-*/
 ```

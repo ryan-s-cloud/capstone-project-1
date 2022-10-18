@@ -1,6 +1,8 @@
-# Create a POD user can 
-# create,list,get,update,delete pods
-# in the capstone-project1 namespace
+# Create a POD user
+
+The pod user's role allows for **create,list,get,update,delete pods*
+in the **capstone-project1** namespace
+
 
 ```sh
 kubectl apply -f capstone-project1-pod-user-csr.yaml

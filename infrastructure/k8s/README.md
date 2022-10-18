@@ -9,7 +9,8 @@ Contains scripts to download etcdctl and create etcd snapshots
 **kustomize:**
 
 **Main** resources to deploy app to kubernetes. Includes everything needed: network policy, HSA, deployment, service, etc.
-It is organized using the Kustomize way.
+
+It is organized the **Kustomize** way.
 
 
 **rbac:**

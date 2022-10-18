@@ -1,4 +1,4 @@
-We use **Kustomize** to origanize our k8s files.
+We use **Kustomize** to organize our k8s files.
 Kustomize is a tool that helps us improve Kubernetes’ declarative object management with configuration files.
 Kustomize has useful features that help with better organizing configuration files, managing
 configuration variables, and support for deployment variants (like dev vs. prod environments).

@@ -1,6 +1,6 @@
 # Create a POD user
 
-The pod user's role allows for **create,list,get,update,delete pods*
+The pod user's role allows for **create,list,get,update,delete** pods
 in the **capstone-project1** namespace
 
 

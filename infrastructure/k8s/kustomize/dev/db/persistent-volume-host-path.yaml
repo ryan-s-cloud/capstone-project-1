@@ -5,4 +5,4 @@ metadata:
   name: vehicle-quotes-postgres-data-persisent-volume
 spec:
   hostPath:
-    path: "/home/ryans/projects/vehicle-quotes-postgres-data-dev"
+    path: "/home/ubuntu/projects/vehicle-quotes-postgres-data-dev"

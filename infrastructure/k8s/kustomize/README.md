@@ -13,13 +13,13 @@ We use two overlays: **dev** and **prod** for the DEV and PROD evironments, resp
 **For deploying to the DEV environment:**
 ```sh
 cd ../..
-kubectl -k k8s/kustomize/dev
+kubectl apply -k k8s/kustomize/dev
 ```
 
 **For deploying to the PROD environment:**
 ```sh
 cd ../..
-kubectl -k k8s/kustomize/prod
+kubectl apply -k k8s/kustomize/prod
 ```
 
 Notice the **-k**, which denotes usage of a Kustomize configuration

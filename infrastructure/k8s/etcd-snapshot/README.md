@@ -6,9 +6,9 @@ actually do the backup of the snapshot.
 **Usage:**
 
 ```sh
-sh ./script-to-backup-etcd-snapshot.sh
+sh ./script-to-download-etcdctl.sh  # download the utility first
 
-sh ./script-to-download-etcdctl.sh
+sh ./script-to-backup-etcd-snapshot.sh
 ```
 
 **script-to-backup-etcd-snapshot.sh:**

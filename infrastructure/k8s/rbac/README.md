@@ -10,6 +10,8 @@ in the **capstone-project1** namespace
 ```sh
 sh ./create-certificate.sh
 sh ./apply.sh
+# To create user's config and test using kubectl
+sh ./create-pod-user-config.sh
 ```
 
 **Or manually:**

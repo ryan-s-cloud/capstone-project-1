@@ -9,4 +9,4 @@ spec:
   request: __CSR___
   usages:
   - client auth
-  signerName: kubernetes.io/kubelet-serving
+  signerName: kubernetes.io/kube-apiserver-client

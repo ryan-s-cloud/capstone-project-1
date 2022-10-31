@@ -3,10 +3,10 @@ kind: CertificateSigningRequest
 metadata:
   name: capstone-project1-pod-user
 spec:
+  groups:
+    - system:authenticated
   # request: $(cat capstone-project1-pod-user.csr | base64 | tr -d '\n')
   request: __CSR___
   usages:
-  - digital signature
-  - key encipherment
-  - server auth
+  - client auth
   signerName: kubernetes.io/kubelet-serving
